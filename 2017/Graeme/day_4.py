@@ -27,7 +27,7 @@ def check_pass_phrases(in_file, allow_anagrams=True):
         for line in f:
 
             # Get list of words, removing newline character
-            words = line[0:-1].split(' ')
+            words = line.rstrip().split(' ')
 
             # If anagrams count as duplicates, sort every word in list
             if not allow_anagrams:
