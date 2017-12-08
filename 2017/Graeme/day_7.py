@@ -6,7 +6,7 @@ def main():
     in_file = 'inputs/day_7.txt'
 
     # Part 1
-    result = find_bottom(in_file)
+    result = find_root(in_file)
     print(result)
 
     # Part 2
@@ -14,7 +14,14 @@ def main():
     print(result)
 
 
-def find_bottom(in_file):
+def find_root(in_file):
+    """
+    Return the root node in a tree define by an input file
+
+    :param str in_file: Path to input file
+    :return: Name of root node
+    :rtype: str
+    """
 
     all_nodes = set()
     all_parents = set()
@@ -37,6 +44,14 @@ def find_bottom(in_file):
 
 
 def find_incorrect_weight(in_file):
+    """
+    Returns a message identifying the node with in incorrect weight in an otherwise balanced tree defined by an
+    input file.  Assumes only one node had an incorrect weight.
+
+    :param str in_file: Path to input file
+    :return: Message identifying node with incorrect weight
+    :rtype: str
+    """
 
     Node = collections.namedtuple('Node', ['weight', 'parents'])
     tree = {}
@@ -47,8 +62,7 @@ def find_incorrect_weight(in_file):
             line = "".join(l.split())
             line_split = line.split('->')
 
-            name, weight = line_split[0].split('(')
-            weight = weight[:-1]
+            name, weight = line_split[0][:-1].split('(')
 
             if len(line_split) > 1:
                 parents = tuple(line_split[1].split(','))
@@ -62,16 +76,28 @@ def find_incorrect_weight(in_file):
     if len(diff) > 1:
         raise Exception("Multiple heads")
 
-    bottom = diff.pop()
+    root = diff.pop()
 
     try:
-        weight = get_weight_of_balanced_tree(tree, bottom)
+        # Try to get the weight of a balanced tree, this will raise an exception if the tree is unbalanced
+        weight = get_weight_of_balanced_tree(tree, root)
         raise Exception("Tree is balanced")
     except ValueError as e:
+        # We are expecting a ValueError to be raised, safely return the exception message
+        # Any other exception is unexpected, let it be raised to the main function
         return e.message
 
 
 def get_weight_of_balanced_tree(tree, root):
+    """
+    Returns the weight of a balanced tree.  Raises exception if tree is unbalanced.
+    The tree should be defined by a dictionary of namedtuple('Node', ['weight', 'parents'])
+
+    :param dict tree: Dictionary defining the tree
+    :param str root: Name of root node
+    :return: Weight of tree
+    :rtype: int
+    """
 
     node = tree[root]
     if not node.parents:
