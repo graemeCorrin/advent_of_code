@@ -3,7 +3,6 @@ import math
 
 class Day03:
     memory_location = 368078
-    # memory_location = 48
 
     def __init__(self):
         self.steps_to_centre = None
@@ -39,18 +38,18 @@ class Day03:
         print('steps ' + str(self.steps_to_centre))
 
     def part_2(self):
-        table = [[], [[1], [1, 2], [4, 5], [10, 11, 23]], [[1,1,1], [1,1,1,1], [1,1,1,1], [1,1,1,1,1]]]
+        table = [[], [[1], [1, 2], [4, 5], [10, 11, 23]], [[25, 26, 54], [57, 59, 122, 133], [142, 147, 304, 330],
+                                                           [351, 362, 747, 806, 880]]]
         level = 3
-        value = 23
+        value = 880
         while not self.first_value_larger:
-            row = []
-            if level == 2:
-                pass
-
-            elif level > 2:
+            table.append([])
+            if level >= 3:
                 for m in range(4):
-                    leg = []
-
+                    if value > self.memory_location:
+                        self.first_value_larger = value
+                        break
+                    table[level].append([])
                     if m == 0:
                         count = (level * 2) - 1
                     elif m == 1 or m == 2:
@@ -89,11 +88,10 @@ class Day03:
                             # Last square in level
                             elif n == count - 1:
                                 value = value + table[level - 1][m][count - 3] + table[level][0][0] + table[level][0][1]
-                        leg.append(value)
+                        table[level][m].append(value)
                         if value > self.memory_location:
                             self.first_value_larger = value
-                    row.append(leg)
-            table.append(row)
+                            break
             level += 1
 
         print(self.first_value_larger)
