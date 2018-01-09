@@ -100,3 +100,12 @@ ENV/
 # mypy
 .mypy_cache/
 .idea/
+2017/Matt/C++/C++.sln
+*.filters
+*.vcxproj
+*.ipch
+*.opendb
+*.db
+.vs/
+2017/Matt/C++/Debug/
+.gitattributes

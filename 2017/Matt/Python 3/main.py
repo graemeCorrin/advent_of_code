@@ -2,7 +2,7 @@ from days.import_select_day import Select
 
 
 class App:
-    puzzle_day = 1
+    puzzle_day = 7
     part = 1
 
     def __init__(self):
