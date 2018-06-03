@@ -109,3 +109,7 @@ ENV/
 .vs/
 2017/Matt/C++/Debug/
 .gitattributes
+
+*.class
+
+2017/Matt/Java/Java\.iml
