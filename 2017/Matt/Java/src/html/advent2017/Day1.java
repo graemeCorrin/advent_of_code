@@ -13,19 +13,19 @@ class Day1 {
   void solution() {
     puzzleInput = getInput();
     inLength = puzzleInput.length();
-    compare(1);             // Part 1
-    compare(inLength / 2);  // Part 2
+    System.out.println(compare(1));             // Part 1
+    System.out.println(compare(inLength / 2));  // Part 2
   }
 
 
-  private void compare(int compareDistance) {
+  private int compare(int compareDistance) {
     int count = 0;
     for (int i = 0; i < inLength; i++) {
       if (puzzleInput.charAt(i) == puzzleInput.charAt((i + compareDistance) % inLength)) {
         count += Character.getNumericValue(puzzleInput.charAt(i));
       }
     }
-    System.out.println(count);
+    return count;
   }
 
 
