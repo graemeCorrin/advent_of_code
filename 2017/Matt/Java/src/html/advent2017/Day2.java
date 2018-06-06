@@ -13,7 +13,36 @@ class Day2 {
     int[][] data = getData();
     System.out.println(checksumDifference(data));   // Part 1
     System.out.println(checksumQuotient(data));     // Part 2
+  }
 
+
+  private int[][] getData() {
+    String line;
+    int lineCount = 0;
+    String[] lines = new String[100];
+
+    try {
+      FileReader fRead = new FileReader(dataFile);
+      BufferedReader bRead = new BufferedReader(fRead);
+      while ((line = bRead.readLine()) != null) {
+        lines[lineCount] = line;
+        lineCount++;
+      }
+      bRead.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    int[][] intEntries = new int[lineCount][lines[0].split(" ").length];
+
+    for (int i = 0; i < lineCount; i++) {
+      String[] strEntries = lines[i].split(" ");
+
+      for (int j = 0; j < strEntries.length; j++) {
+        intEntries[i][j] = Integer.parseInt(strEntries[j]);
+      }
+    }
+    return intEntries;
   }
 
 
@@ -65,33 +94,4 @@ class Day2 {
     return sum;
   }
 
-
-  private int[][] getData() {
-    String line;
-    int lineCount = 0;
-    String[] lines = new String[100];
-
-    try {
-      FileReader fRead = new FileReader(dataFile);
-      BufferedReader bRead = new BufferedReader(fRead);
-      while ((line = bRead.readLine()) != null) {
-        lines[lineCount] = line;
-        lineCount++;
-      }
-      bRead.close();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-
-    int[][] intEntries = new int[lineCount][lines[0].split(" ").length];
-
-    for (int i = 0; i < lineCount; i++) {
-      String[] strEntries = lines[i].split(" ");
-
-      for (int j = 0; j < strEntries.length; j++) {
-        intEntries[i][j] = Integer.parseInt(strEntries[j]);
-      }
-    }
-    return intEntries;
-  }
 }
