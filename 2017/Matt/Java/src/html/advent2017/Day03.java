@@ -1,7 +1,6 @@
 package html.advent2017;
 
 class Day03 extends DayBase {
-
   int puzzleInput = 277678;
 
   enum cardinalDirection {

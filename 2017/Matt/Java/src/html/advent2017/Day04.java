@@ -8,7 +8,7 @@ import java.util.Arrays;
 import static java.util.Arrays.sort;
 
 class Day04 extends DayBase {
-  private String dataFile = "data/day4";
+  private String dataFile = "data/day04";
 
 
   void solution() {

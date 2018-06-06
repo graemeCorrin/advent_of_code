@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 class Day01 extends DayBase {
-
+  private  String dataFile = "data/day01";
   private String puzzleInput = null;
   private int inLength = 0;
 
@@ -33,7 +33,7 @@ class Day01 extends DayBase {
     String line = null;
 
     try {
-      FileReader fRead = new FileReader("data/day1");
+      FileReader fRead = new FileReader(dataFile);
       BufferedReader bRead = new BufferedReader(fRead);
       line = bRead.readLine();
       bRead.close();
