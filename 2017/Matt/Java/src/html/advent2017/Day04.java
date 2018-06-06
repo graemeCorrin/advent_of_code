@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static java.util.Arrays.sort;
 
-class Day4 {
+class Day04 extends DayBase {
   private String dataFile = "data/day4";
 
 

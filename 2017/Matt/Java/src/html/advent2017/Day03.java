@@ -1,6 +1,6 @@
 package html.advent2017;
 
-class Day3 {
+class Day03 extends DayBase {
 
   int puzzleInput = 277678;
 

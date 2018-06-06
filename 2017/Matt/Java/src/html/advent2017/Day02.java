@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-class Day2 {
+class Day02 extends DayBase {
 
   private String dataFile = "data/day2";
 

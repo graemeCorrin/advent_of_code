@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-class Day1 {
+class Day01 extends DayBase {
 
   private String puzzleInput = null;
   private int inLength = 0;
