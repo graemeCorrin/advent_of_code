@@ -21,7 +21,7 @@ class Day04 extends DayBase {
   private String[] getData() {
     String line;
     int lineCount = 0;
-    String[] lines = new String[1000];
+    String[] lines = new String[2000];
 
     try {
       FileReader fRead = new FileReader(dataFile);

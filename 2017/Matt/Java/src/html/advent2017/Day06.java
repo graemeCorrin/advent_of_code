@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Day06 extends DayBase {
-  int[] data = {4, 10, 4, 1, 8, 4, 9, 14, 5, 1, 14, 15, 0, 15, 3, 5};
+  private int[] data = {4, 10, 4, 1, 8, 4, 9, 14, 5, 1, 14, 15, 0, 15, 3, 5};
 
   void solution() {
     System.out.println(bankRoutineCounter());   // Part 1
@@ -16,7 +16,7 @@ public class Day06 extends DayBase {
     int bankCount = data.length;
     int[] banks = new int[bankCount];
     System.arraycopy(data, 0, banks, 0, bankCount);
-    Set<String> bankCombinations = new HashSet<String>();
+    Set<String> bankCombinations = new HashSet<>();
     boolean repeat = false;
 
     while (!repeat) {
