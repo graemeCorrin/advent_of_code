@@ -101,8 +101,9 @@ class Registers:
 
 
 def main():
+    in_file = '/home/hirdm/Documents/advent_of_code/2017/Matt/Java/data/day08'
 
-    in_file = 'inputs/day_8.txt'
+#    in_file = 'inputs/day_8.txt'
     registers = Registers()
 
     # Process every instruction in input file

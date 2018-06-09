@@ -48,7 +48,6 @@ class Day07 extends DayBase {
 
     for (int i = 0; i < data.length; i ++) {
       String [] words = data[i].split(" ");
-      int wordCount = words.length;
       Node tempNode;
 
       if (!map.containsKey(words[0])) {
