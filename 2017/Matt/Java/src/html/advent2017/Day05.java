@@ -15,7 +15,7 @@ class Day05 extends DayBase {
   }
 
 
-  int[] getData() {
+  private int[] getData() {
     String line;
     int lineCount = 0;
     String[] lines = new String[2000];
