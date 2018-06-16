@@ -1,6 +1,7 @@
 import argparse
 from advent.day.day_1 import Day1
 from advent.day.day_2 import Day2
+from advent.day.day_3 import Day3
 
 
 def __run():
@@ -89,7 +90,15 @@ def __run_day2():
 
 
 def __run_day3():
-    pass
+    input_value = 361527
+
+    # Part 1
+    result = Day3.steps_to_center(input_value)
+    print(result)
+
+    # Part 2
+    result = Day3.first_larger_value(input_value)
+    print(result)
 
 
 def __run_day4():
