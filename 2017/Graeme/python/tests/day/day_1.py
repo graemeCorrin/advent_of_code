@@ -1,5 +1,8 @@
+import unittest
+from advent.day.day_1 import Day1
 
-def main():
+
+class TestDay1(unittest.TestCase):
 
     string = '522883333635584854991545936673798259831295958381745562154597678479248946819836599823272273487661233235' \
              '237619281355294981427594757577433952981197664436151779558699831924224161481362273425579756957157769923' \
@@ -22,35 +25,12 @@ def main():
              '499869795942584588314573632381822512931184599721498766343337568962174666562918725251164396931528331626' \
              '9222835744532431378945137649959158495714472963839397214332815241141327714672141875129895'
 
-    # Part 1
-    result = captcha(string, 1)
-    print(result)
+    def test_solution_1(self):
+        self.assertEqual(Day1.captcha(self.string, 1), 1216)
 
-    # Part 2
-    result = captcha(string, int(len(string) / 2))
-    print(result)
+    def test_solution_2(self):
+        self.assertEqual(Day1.captcha(self.string, int(len(self.string) / 2)), 1072)
 
 
-def captcha(string, step):
-    """
-    Sum all digits in input string that match their counterpart, where the counterpart of a digit is the digit that is
-    a number of positions away from it as defined by the step value
-
-    :param str string: Input string of digits
-    :param int step: The step between digit pairs
-    :return: Sum of matching digit pairs
-    :rtype: int
-    """
-
-    final_sum = 0
-    length = len(string)
-    for i in range(length):
-        next_i = i + step if i + step < length else i + step - length
-        if string[i] == string[next_i]:
-            final_sum += int(string[i])
-
-    return final_sum
-
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    unittest.main()

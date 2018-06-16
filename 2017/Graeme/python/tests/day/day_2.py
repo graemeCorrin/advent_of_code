@@ -1,5 +1,8 @@
-def main():
+import unittest
+from advent.day.day_2 import Day2
 
+
+class TestDay2(unittest.TestCase):
     table = [[1208, 412, 743, 57, 1097, 53, 71, 1029, 719, 133, 258, 69, 1104, 373, 367, 365],
              [4011, 4316, 1755, 4992, 228, 240, 3333, 208, 247, 3319, 4555, 717, 1483, 4608, 1387, 3542],
              [675, 134, 106, 115, 204, 437, 1035, 1142, 195, 1115, 569, 140, 1133, 190, 701, 1016],
@@ -17,56 +20,12 @@ def main():
              [2290, 157, 2759, 3771, 4112, 2063, 153, 3538, 3740, 130, 3474, 1013, 180, 2164, 170, 189],
              [525, 1263, 146, 954, 188, 232, 1019, 918, 268, 172, 1196, 1091, 1128, 234, 650, 420]]
 
-    # Part 1
-    result = checksum_difference(table)
-    print(result)
+    def test_solution_1(self):
+        self.assertEqual(Day2.checksum_difference(self.table), 54426)
 
-    # Part 2
-    result = checksum_quotient(table)
-    print(result)
+    def test_solution_2(self):
+        self.assertEqual(Day2.checksum_quotient(self.table), 333)
 
 
-def checksum_difference(table):
-    """
-    Sum the largest difference of values in each row of the input table
-
-    :param list table: Input table
-    :return: Sum
-    :rtype: int
-    """
-
-    checksum = 0
-    for row in table:
-        min_val = None
-        max_val = None
-        for cell in row:
-            if not min_val or cell < min_val:
-                min_val = cell
-            if not max_val or cell > max_val:
-                max_val = cell
-        checksum += max_val - min_val
-    return checksum
-
-
-def checksum_quotient(table):
-    """
-    Sum the first quotient of the evenly divisible values found in each row
-
-    :param list table: Input table
-    :return: Sum
-    :rtype: int
-    """
-    i = 0
-    checksum = 0
-    for row in table:
-        i += 1
-        for cell_1 in row:
-            for cell_2 in row:
-                if cell_1 != cell_2 and cell_1 % cell_2 == 0:
-                    checksum += cell_1 / cell_2
-                    continue
-    return int(checksum)
-
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    unittest.main()
