@@ -20,10 +20,28 @@ class TestDay2(unittest.TestCase):
              [2290, 157, 2759, 3771, 4112, 2063, 153, 3538, 3740, 130, 3474, 1013, 180, 2164, 170, 189],
              [525, 1263, 146, 954, 188, 232, 1019, 918, 268, 172, 1196, 1091, 1128, 234, 650, 420]]
 
-    def test_solution_1(self):
+    example_table_1 = [[5, 1, 9, 5],
+                       [7, 5, 3],
+                       [2, 4, 6, 8]]
+
+    example_table_2 = [[5, 9, 2, 8],
+                       [9, 4, 7, 3],
+                       [3, 8, 6, 5]]
+
+    # Part 1
+
+    def test_part_1_example(self):
+        self.assertEqual(Day2.checksum_difference(self.example_table_1), 18)
+
+    def test_part_1_solution(self):
         self.assertEqual(Day2.checksum_difference(self.table), 54426)
 
-    def test_solution_2(self):
+    # Part 2
+
+    def test_part_2_example(self):
+        self.assertEqual(Day2.checksum_quotient(self.example_table_2), 9)
+
+    def test_part_2_solution(self):
         self.assertEqual(Day2.checksum_quotient(self.table), 333)
 
 
