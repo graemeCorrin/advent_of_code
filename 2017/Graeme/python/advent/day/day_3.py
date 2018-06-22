@@ -6,8 +6,9 @@ class Day3:
     @staticmethod
     def steps_to_center(value: int) -> int:
         """
+        How many steps from the starting square to the center
 
-        :param value: 
+        :param value: starting square
         :return: steps from the center
         """
 
@@ -30,6 +31,12 @@ class Day3:
 
     @staticmethod
     def first_larger_value(value: int) -> int:
+        """
+        Return first value written larger than input value
+
+        :param value: input value
+        :return: first value written larger than input value
+        """
 
         # Starting grid and cell
         grid = {0: {0: 1}}
@@ -100,7 +107,15 @@ class Day3:
                 return new_val
 
     @staticmethod
-    def __try_add(value, grid, x, y):
+    def __try_add(value: int, grid: dict, x: int, y: int) -> int:
+        """
+
+        :param value:
+        :param grid:
+        :param x:
+        :param y:
+        :return:
+        """
         try:
             return value + grid[x][y]
         except:
