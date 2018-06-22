@@ -25,11 +25,42 @@ class TestDay1(unittest.TestCase):
              '499869795942584588314573632381822512931184599721498766343337568962174666562918725251164396931528331626' \
              '9222835744532431378945137649959158495714472963839397214332815241141327714672141875129895'
 
-    def test_solution_1(self):
-        self.assertEqual(Day1.captcha(self.string, 1), 1216)
+    # Part 1
 
-    def test_solution_2(self):
-        self.assertEqual(Day1.captcha(self.string, int(len(self.string) / 2)), 1072)
+    def test_part_1_example_1(self):
+        self.assertEqual(Day1.part_1("1122"), 3)
+
+    def test_part_1_example_2(self):
+        self.assertEqual(Day1.part_1("1111"), 4)
+
+    def test_part_1_example_3(self):
+        self.assertEqual(Day1.part_1("1234"), 0)
+
+    def test_part_1_example_4(self):
+        self.assertEqual(Day1.part_1("91212129"), 9)
+
+    def test_part_1_solution(self):
+        self.assertEqual(Day1.part_1(self.string), 1216)
+
+    # Part 2
+
+    def test_part_2_example_1(self):
+        self.assertEqual(Day1.part_2("1212"), 6)
+
+    def test_part_2_example_2(self):
+        self.assertEqual(Day1.part_2("1221"), 0)
+
+    def test_part_2_example_3(self):
+        self.assertEqual(Day1.part_2("123425"), 4)
+
+    def test_part_2_example_4(self):
+        self.assertEqual(Day1.part_2("123123"), 12)
+
+    def test_part_2_example_5(self):
+        self.assertEqual(Day1.part_2("12131415"), 4)
+
+    def test_part_2_solution(self):
+        self.assertEqual(Day1.part_2(self.string), 1072)
 
 
 if __name__ == '__main__':
