@@ -113,3 +113,7 @@ ENV/
 *.class
 
 2017/Matt/Java/Java\.iml
+
+2017/Matt/Java/out/production/Java/META-INF/Java\.kotlin_module
+
+2017/Matt/Java/src/html/advent2017/day18/sss\.kt
