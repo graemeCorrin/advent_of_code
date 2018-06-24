@@ -1,7 +1,12 @@
 import argparse
+import pathlib
+
 from advent.day.day_1 import Day1
 from advent.day.day_2 import Day2
 from advent.day.day_3 import Day3
+from advent.day.day_4 import Day4
+from advent.day.day_5 import Day5
+from advent.day.day_6 import Day6
 
 
 def __run():
@@ -30,6 +35,15 @@ def run_days(days=None):
     if all_days or 3 in days:
         __run_day3()
 
+    if all_days or 4 in days:
+        __run_day4()
+
+    if all_days or 5 in days:
+        __run_day5()
+
+    if all_days or 6 in days:
+        __run_day6()
+
 
 def __run_day1():
     string = '522883333635584854991545936673798259831295958381745562154597678479248946819836599823272273487661233235' \
@@ -53,13 +67,13 @@ def __run_day1():
              '499869795942584588314573632381822512931184599721498766343337568962174666562918725251164396931528331626' \
              '9222835744532431378945137649959158495714472963839397214332815241141327714672141875129895'
 
+    print("Day 1")
+
     # Part 1
-    result = Day1.captcha(string, 1)
-    print(result)
+    print(f"  Part One: {Day1.part_1(string)}")
 
     # Part 2
-    result = Day1.captcha(string, int(len(string) / 2))
-    print(result)
+    print(f"  Part Two: {Day1.part_2(string)}")
 
 
 def __run_day2():
@@ -80,37 +94,70 @@ def __run_day2():
              [2290, 157, 2759, 3771, 4112, 2063, 153, 3538, 3740, 130, 3474, 1013, 180, 2164, 170, 189],
              [525, 1263, 146, 954, 188, 232, 1019, 918, 268, 172, 1196, 1091, 1128, 234, 650, 420]]
 
+    print("Day 2")
+
     # Part 1
-    result = Day2.checksum_difference(table)
-    print(result)
+    print(f"  Part One: {Day2.checksum_difference(table)}")
 
     # Part 2
-    result = Day2.checksum_quotient(table)
-    print(result)
+    print(f"  Part Two: {Day2.checksum_quotient(table)}")
 
 
 def __run_day3():
     input_value = 361527
 
+    print("Day 3")
+
     # Part 1
-    result = Day3.steps_to_center(input_value)
-    print(result)
+    print(f"  Part One: {Day3.steps_to_center(input_value)}")
 
     # Part 2
-    result = Day3.first_larger_value(input_value)
-    print(result)
+    print(f"  Part Two: {Day3.first_larger_value(input_value)}")
 
 
 def __run_day4():
-    pass
+    in_file = pathlib.Path.cwd().parent / 'data' / 'day_4.txt'
+
+    print("Day 4")
+
+    # Part 1
+    print(f"  Part One: {Day4.check_pass_phrases_from_file(in_file)}")
+
+    # Part 2
+    print(f"  Part Two: {Day4.check_pass_phrases_from_file(in_file, False)}")
 
 
 def __run_day5():
-    pass
+    in_file = pathlib.Path.cwd().parent / 'data' / 'day_5.txt'
+
+    maze_1 = []
+    with open(in_file) as f:
+        for line in f:
+            # Get list of ints from file, strip newline characters
+            maze_1.append(int(line.rstrip()))
+    maze_2 = maze_1[:]
+
+    print("Day 5")
+
+    # Part 1
+    print(f"  Part One: {Day5.steps_to_escape(maze_1)}")
+
+    # Part 2
+    print(f"  Part Two: {Day5.steps_to_escape(maze_2, 2)}")
 
 
 def __run_day6():
-    pass
+    array = [10, 3, 15, 10, 5, 15, 5, 15, 9, 2, 5, 8, 5, 2, 3, 6]
+
+    print("Day 6")
+
+    # Part 1
+    print(f"  Part One: {Day6.steps_to_infinite_loop(array)}")
+
+    # Part 2
+    # The first call of the function modified the original array
+    # calling the same function again will give you the number of steps IN the infinite loop
+    print(f"  Part Two: {Day6.steps_to_infinite_loop(array)}")
 
 
 def __run_day7():
