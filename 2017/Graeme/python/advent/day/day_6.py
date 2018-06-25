@@ -2,15 +2,14 @@
 class Day6:
 
     @staticmethod
-    def steps_to_infinite_loop(array):
+    def steps_to_infinite_loop(array: list) -> int:
         """
         Redistribute the largest element in the list evenly across the list, starting at the element after the largest
         element.  Continue until a configuration of the list is seen twice.  Return the number of steps.  This will be
         the number of steps before an infinite loop is detected.
 
-        :param list array: Input array of integers
+        :param array: Input array of integers
         :return: Steps till an infinite loop is detected
-        :rtype: int
         """
         tuples = set()
         steps = 0

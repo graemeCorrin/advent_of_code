@@ -4,7 +4,7 @@ import pathlib
 class Day4:
 
     @staticmethod
-    def check_pass_phrases_from_file(in_file: pathlib.Path, allow_anagrams: bool=True):
+    def check_pass_phrases_from_file(in_file: pathlib.Path, allow_anagrams: bool=True) -> int:
         """
         Calculate number of valid pass phrases from a file where every line is a pass phrase, and a
 
