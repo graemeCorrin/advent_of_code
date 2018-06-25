@@ -9,6 +9,7 @@ from advent.day.day_5 import Day5
 from advent.day.day_6 import Day6
 from advent.day.day_7 import Day7
 from advent.day.day_8 import Day8
+from advent.day.day_9 import Day9
 
 
 def __run():
@@ -51,6 +52,9 @@ def run_days(days=None):
 
     if all_days or 8 in days:
         __run_day8()
+
+    if all_days or 9 in days:
+        __run_day9()
 
 
 def __run_day1():
@@ -204,7 +208,19 @@ def __run_day8():
 
 
 def __run_day9():
-    pass
+    in_file = pathlib.Path.cwd().parent / 'data' / 'day_9.txt'
+    input_string = ''
+    with open(in_file) as f:
+        for line in f:
+            input_string = line
+
+    print("Day 9")
+
+    # Part 1
+    print(f"  Part One: {Day9.get_weight(input_string)}")
+
+    # Part 2
+    print(f"  Part Two: {Day9.count_garbage(input_string)}")
 
 
 def __run_day10():
