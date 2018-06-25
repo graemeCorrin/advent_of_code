@@ -8,6 +8,7 @@ from advent.day.day_4 import Day4
 from advent.day.day_5 import Day5
 from advent.day.day_6 import Day6
 from advent.day.day_7 import Day7
+from advent.day.day_8 import Day8
 
 
 def __run():
@@ -47,6 +48,9 @@ def run_days(days=None):
 
     if all_days or 7 in days:
         __run_day7()
+
+    if all_days or 8 in days:
+        __run_day8()
 
 
 def __run_day1():
@@ -173,17 +177,30 @@ def __run_day7():
             # Get list of ints from file, strip newline characters
             programs.append(line.rstrip())
 
+    print("Day 7")
+
     # Part 1
-    result = Day7.find_root(programs)
-    print(result)
+    print(f"  Part One: {Day7.find_root(programs)}")
 
     # Part 2
-    result = Day7.find_incorrect_weight(programs)
-    print(result)
+    print(f"  Part Two: {Day7.find_incorrect_weight(programs)}")
 
 
 def __run_day8():
-    pass
+    in_file = pathlib.Path.cwd().parent / 'data' / 'day_8.txt'
+
+    instructions = []
+    with open(in_file) as f:
+        for line in f:
+            instructions.append(line.rstrip())
+
+    print("Day 8")
+
+    # Part 1
+    print(f"  Part One: {Day8.part_1(instructions)}")
+
+    # Part 2
+    print(f"  Part Two: {Day8.part_2(instructions)}")
 
 
 def __run_day9():
