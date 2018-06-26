@@ -10,6 +10,7 @@ from advent.day.day_6 import Day6
 from advent.day.day_7 import Day7
 from advent.day.day_8 import Day8
 from advent.day.day_9 import Day9
+from advent.day.day_10 import Day10
 
 
 def __run():
@@ -55,6 +56,9 @@ def run_days(days=None):
 
     if all_days or 9 in days:
         __run_day9()
+
+    if all_days or 10 in days:
+        __run_day10()
 
 
 def __run_day1():
@@ -224,7 +228,16 @@ def __run_day9():
 
 
 def __run_day10():
-    pass
+    input_lengths = [76, 1, 88, 148, 166, 217, 130, 0, 128, 254, 16, 2, 130, 71, 255, 229]
+    input_string = '76,1,88,148,166,217,130,0,128,254,16,2,130,71,255,229'
+
+    print("Day 10")
+
+    # Part 1
+    print(f"  Part One: {Day10.get_hash(input_lengths, 256)}")
+
+    # Part 2
+    print(f"  Part Two: {Day10.get_hash_2(input_string, 256)}")
 
 
 def __run_day11():
