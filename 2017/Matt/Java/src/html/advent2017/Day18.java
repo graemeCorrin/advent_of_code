@@ -2,7 +2,7 @@ package html.advent2017;
 
 import html.advent2017.day18.DuetMusic;
 import html.advent2017.day18.DuetProgram;
-import html.advent2017.day18.Register;
+import html.advent2017.day18.RegisterLong;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -52,7 +52,7 @@ class Day18 extends DayBase {
     DuetMusic duetMusic = new DuetMusic();
     int commandIndex = 0;
     long firstRecover = 0;
-    HashMap<String, Register> registerHashMap = new HashMap<>();
+    HashMap<String, RegisterLong> registerHashMap = new HashMap<>();
 
     while (commandIndex >= 0 && commandIndex < data.length) {
       String[] command = new String[3];
@@ -64,13 +64,13 @@ class Day18 extends DayBase {
       if (command[1].charAt(0) >= 'a' && command[1].charAt(0) <= 'z') {
         argumentOneRegister = true;
         if (!registerHashMap.containsKey(command[1])) {
-          registerHashMap.put(command[1], new Register(command[1]));
+          registerHashMap.put(command[1], new RegisterLong(command[1]));
         }
       }
       if ((command[2].charAt(0) >= 'a' && command[2].charAt(0) <= 'z') || command[2].charAt(0) == ' ') {
         argumentTwoRegister = true;
         if (!registerHashMap.containsKey(command[2])) {
-          registerHashMap.put(command[2], new Register(command[2]));
+          registerHashMap.put(command[2], new RegisterLong(command[2]));
         }
       }
 
@@ -124,7 +124,7 @@ class Day18 extends DayBase {
   }
 
 
-  private String[] commandSwitch(DuetMusic duetMusic, String command, Register argumentOne, long argumentTwo) {
+  private String[] commandSwitch(DuetMusic duetMusic, String command, RegisterLong argumentOne, long argumentTwo) {
     String[] result = new String[2];
     result[0] = command;
 
@@ -155,7 +155,7 @@ class Day18 extends DayBase {
   }
 
 
-  private String[] commandSwitch(DuetMusic duetMusic, String command, long argumentOne, Register argumentTwo) {
+  private String[] commandSwitch(DuetMusic duetMusic, String command, long argumentOne, RegisterLong argumentTwo) {
     String[] result = new String[2];
     result[0] = command;
 
@@ -174,7 +174,7 @@ class Day18 extends DayBase {
   }
 
 
-  private String[] commandSwitch(DuetMusic duetMusic, String command, Register argumentOne, Register argumentTwo) {
+  private String[] commandSwitch(DuetMusic duetMusic, String command, RegisterLong argumentOne, RegisterLong argumentTwo) {
     String[] result = new String[2];
     result[0] = command;
 

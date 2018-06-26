@@ -13,7 +13,7 @@ public class DuetProcess {
   private DuetProcess sisterReference;
   private String[][] commandList;
   private LinkedList<Long> receiveQueue;
-  private HashMap<String, Register> registerHashMap;
+  private HashMap<String, RegisterLong> registerHashMap;
 
   private boolean wait = false;
   private boolean complete = false;
@@ -30,7 +30,7 @@ public class DuetProcess {
   void reset(String commandListFilePath) {
     receiveQueue = new LinkedList<>();
     registerHashMap = new HashMap<>();
-    registerHashMap.put("p", new Register("p", Long.parseLong(getDuetProcessID())));
+    registerHashMap.put("p", new RegisterLong("p", Long.parseLong(getDuetProcessID())));
     commandIndex = 0;
     setCommandList(commandListFilePath);
     sendCount = 0;
@@ -48,13 +48,13 @@ public class DuetProcess {
       if (command[1].charAt(0) >= 'a' && command[1].charAt(0) <= 'z') {
         argumentOneRegister = true;
         if (!registerHashMap.containsKey(command[1])) {
-          registerHashMap.put(command[1], new Register(command[1]));
+          registerHashMap.put(command[1], new RegisterLong(command[1]));
         }
       }
       if ((command[2].charAt(0) >= 'a' && command[2].charAt(0) <= 'z') || command[2].charAt(0) == ' ') {
         argumentTwoRegister = true;
         if (!registerHashMap.containsKey(command[2])) {
-          registerHashMap.put(command[2], new Register(command[2]));
+          registerHashMap.put(command[2], new RegisterLong(command[2]));
         }
       }
 
@@ -139,52 +139,52 @@ public class DuetProcess {
   }
 
 
-  private void send(Register x) {
+  private void send(RegisterLong x) {
     send(x.getValue());
   }
 
 
-  private void set(Register x, long y) {
+  private void set(RegisterLong x, long y) {
     x.setValue(y);
   }
 
 
-  private void set(Register x, Register y) {
+  private void set(RegisterLong x, RegisterLong y) {
     set(x, y.getValue());
   }
 
 
-  private void add(Register x, long y) {
+  private void add(RegisterLong x, long y) {
     x.setValue(x.getValue() + y);
   }
 
 
-  private void add(Register x, Register y) {
+  private void add(RegisterLong x, RegisterLong y) {
     add(x, y.getValue());
   }
 
 
-  private void multiply(Register x, long y) {
+  private void multiply(RegisterLong x, long y) {
     x.setValue(x.getValue() * y);
   }
 
 
-  private void multiply(Register x, Register y) {
+  private void multiply(RegisterLong x, RegisterLong y) {
     multiply(x, y.getValue());
   }
 
 
-  private void modulo(Register x, long y) {
+  private void modulo(RegisterLong x, long y) {
     x.setValue(x.getValue() % y);
   }
 
 
-  private void modulo(Register x, Register y) {
+  private void modulo(RegisterLong x, RegisterLong y) {
     modulo(x, y.getValue());
   }
 
 
-  private void receive(Register x) {
+  private void receive(RegisterLong x) {
     if (receiveQueue.isEmpty()) {
       wait = true;
     } else {
@@ -199,17 +199,17 @@ public class DuetProcess {
   }
 
 
-  private int jumpIfGreaterThanZero(Register x, long y) {
+  private int jumpIfGreaterThanZero(RegisterLong x, long y) {
     return jumpIfGreaterThanZero(x.getValue(), y);
   }
 
 
-  private int jumpIfGreaterThanZero(long x, Register y) {
+  private int jumpIfGreaterThanZero(long x, RegisterLong y) {
     return jumpIfGreaterThanZero(x, y.getValue());
   }
 
 
-  private int jumpIfGreaterThanZero(Register x, Register y) {
+  private int jumpIfGreaterThanZero(RegisterLong x, RegisterLong y) {
     return jumpIfGreaterThanZero(x.getValue(), y.getValue());
   }
 
@@ -226,7 +226,7 @@ public class DuetProcess {
   }
 
 
-  private int commandSwitch(String command, Register argumentOne, long argumentTwo) {
+  private int commandSwitch(String command, RegisterLong argumentOne, long argumentTwo) {
     int result = 1;
 
     switch (command) {
@@ -250,7 +250,7 @@ public class DuetProcess {
   }
 
 
-  private int commandSwitch(String command, long argumentOne, Register argumentTwo) {
+  private int commandSwitch(String command, long argumentOne, RegisterLong argumentTwo) {
     int result = 1;
 
     switch (command) {
@@ -262,7 +262,7 @@ public class DuetProcess {
   }
 
 
-  private int commandSwitch(String command, Register argumentOne, Register argumentTwo) {
+  private int commandSwitch(String command, RegisterLong argumentOne, RegisterLong argumentTwo) {
     int result = 1;
 
     switch (command) {

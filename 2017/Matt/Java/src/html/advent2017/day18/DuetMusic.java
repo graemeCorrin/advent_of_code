@@ -13,47 +13,47 @@ public class DuetMusic {
   }
 
 
-  public void sound(Register x) {
+  public void sound(RegisterLong x) {
     sound(x.getValue());
   }
 
 
-  public void set(Register x, long y) {
+  public void set(RegisterLong x, long y) {
     x.setValue(y);
   }
 
 
-  public void set(Register x, Register y) {
+  public void set(RegisterLong x, RegisterLong y) {
     set(x, y.getValue());
   }
 
 
-  public void add(Register x, long y) {
+  public void add(RegisterLong x, long y) {
     x.setValue(x.getValue() + y);
   }
 
 
-  public void add(Register x, Register y) {
+  public void add(RegisterLong x, RegisterLong y) {
     add(x, y.getValue());
   }
 
 
-  public void multiply(Register x, long y) {
+  public void multiply(RegisterLong x, long y) {
     x.setValue(x.getValue() * y);
   }
 
 
-  public void multiply(Register x, Register y) {
+  public void multiply(RegisterLong x, RegisterLong y) {
     multiply(x, y.getValue());
   }
 
 
-  public void modulo(Register x, long y) {
+  public void modulo(RegisterLong x, long y) {
     x.setValue(x.getValue() % y);
   }
 
 
-  public void modulo(Register x, Register y) {
+  public void modulo(RegisterLong x, RegisterLong y) {
     modulo(x, y.getValue());
   }
 
@@ -66,7 +66,7 @@ public class DuetMusic {
   }
 
 
-  public long recover(Register x) {
+  public long recover(RegisterLong x) {
     return recover(x.getValue());
   }
 
@@ -76,17 +76,17 @@ public class DuetMusic {
   }
 
 
-  public long jumpIfGreaterThanZero(Register x, long y) {
+  public long jumpIfGreaterThanZero(RegisterLong x, long y) {
     return jumpIfGreaterThanZero(x.getValue(), y);
   }
 
 
-  public long jumpIfGreaterThanZero(long x, Register y) {
+  public long jumpIfGreaterThanZero(long x, RegisterLong y) {
     return jumpIfGreaterThanZero(x, y.getValue());
   }
 
 
-  public long jumpIfGreaterThanZero(Register x, Register y) {
+  public long jumpIfGreaterThanZero(RegisterLong x, RegisterLong y) {
     return jumpIfGreaterThanZero(x.getValue(), y.getValue());
   }
 }
