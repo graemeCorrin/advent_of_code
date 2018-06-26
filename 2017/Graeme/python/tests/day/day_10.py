@@ -1,9 +1,8 @@
-import pathlib
 import unittest
 from advent.day.day_10 import Day10
 
 
-class TestDay6(unittest.TestCase):
+class TestDay10(unittest.TestCase):
     input_lengths = [76, 1, 88, 148, 166, 217, 130, 0, 128, 254, 16, 2, 130, 71, 255, 229]
     input_string = '76,1,88,148,166,217,130,0,128,254,16,2,130,71,255,229'
 

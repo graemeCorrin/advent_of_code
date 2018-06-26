@@ -492,6 +492,7 @@ Treating your puzzle input as a string of ASCII characters, **what is the Knot H
 **Hex Ed**
 
 ### Part One
+
 Crossing the bridge, you've barely reached the other side of the stream when a program comes up to you, clearly in distress. "It's my child process," she says, "he's gotten lost in an infinite grid!"
 
 Fortunately for her, you have plenty of experience with infinite grids.

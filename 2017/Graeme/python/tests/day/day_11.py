@@ -3,7 +3,7 @@ import unittest
 from advent.day.day_11 import Day11
 
 
-class TestDay6(unittest.TestCase):
+class TestDay11(unittest.TestCase):
     in_file = pathlib.Path.cwd().parent.parent / 'data' / 'day_11.txt'
     input_list = []
     with open(in_file) as f:
