@@ -12,6 +12,7 @@ from advent.day.day_8 import Day8
 from advent.day.day_9 import Day9
 from advent.day.day_10 import Day10
 from advent.day.day_11 import Day11
+from advent.day.day_12 import Day12
 
 
 def __run():
@@ -63,6 +64,9 @@ def run_days(days=None):
 
     if all_days or 11 in days:
         __run_day11()
+
+    if all_days or 12 in days:
+        __run_day12()
 
 
 def __run_day1():
@@ -261,7 +265,13 @@ def __run_day11():
 
 
 def __run_day12():
-    pass
+    print("Day 12")
+
+    # Part 1
+    print(f"  Part One: {Day12.part_1()}")
+
+    # Part 2
+    print(f"  Part Two: {Day12.part_1()}")
 
 
 def __run_day13():
