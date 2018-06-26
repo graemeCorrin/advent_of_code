@@ -11,6 +11,7 @@ from advent.day.day_7 import Day7
 from advent.day.day_8 import Day8
 from advent.day.day_9 import Day9
 from advent.day.day_10 import Day10
+from advent.day.day_11 import Day11
 
 
 def __run():
@@ -59,6 +60,9 @@ def run_days(days=None):
 
     if all_days or 10 in days:
         __run_day10()
+
+    if all_days or 11 in days:
+        __run_day11()
 
 
 def __run_day1():
@@ -241,7 +245,19 @@ def __run_day10():
 
 
 def __run_day11():
-    pass
+    in_file = pathlib.Path.cwd().parent / 'data' / 'day_11.txt'
+    input_list = []
+    with open(in_file) as f:
+        for line in f:
+            input_list = line.split(',')
+
+    print("Day 11")
+
+    # Part 1
+    print(f"  Part One: {Day11.dist_from_center(input_list)}")
+
+    # Part 2
+    print(f"  Part Two: {Day11.furthest_dist_from_center(input_list)}")
 
 
 def __run_day12():
