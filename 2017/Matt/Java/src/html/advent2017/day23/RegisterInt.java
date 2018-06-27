@@ -1,20 +1,20 @@
-package html.advent2017.day18;
+package html.advent2017.day23;
 
-public class Register {
+public class RegisterInt {
   private String name;
-  private long value;
+  private int value;
 
-  public Register() {
+  public RegisterInt() {
     this("");
   }
 
 
-  public Register(String name) {
+  public RegisterInt(String name) {
     this(name, 0);
   }
 
 
-  public Register(String name, long value) {
+  public RegisterInt(String name, int value) {
     this.name = name;
     this.value = value;
   }
@@ -30,12 +30,12 @@ public class Register {
   }
 
 
-  public void setValue(long value) {
+  public void setValue(int value) {
     this.value = value;
   }
 
 
-  public long getValue() {
+  public int getValue() {
     return value;
   }
 }

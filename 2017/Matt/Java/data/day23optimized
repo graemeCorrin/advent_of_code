@@ -1,0 +1,12 @@
+set b 107900
+set c 124900
+set e b
+set d e
+jip b 2
+add h 1
+set g b
+sub g c
+jnz g 2
+jnz 1 3
+add b 17
+jnz 1 -9
