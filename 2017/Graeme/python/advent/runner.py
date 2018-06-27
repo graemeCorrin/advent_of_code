@@ -265,13 +265,19 @@ def __run_day11():
 
 
 def __run_day12():
+    in_file = pathlib.Path.cwd().parent / 'data' / 'day_12.txt'
+    input_list = []
+    with open(in_file) as f:
+        for line in f:
+            input_list.append(line.rstrip())
+
     print("Day 12")
 
     # Part 1
-    print(f"  Part One: {Day12.part_1()}")
+    print(f"  Part One: {Day12.part_1(input_list)}")
 
     # Part 2
-    print(f"  Part Two: {Day12.part_1()}")
+    print(f"  Part Two: {Day12.part_2(input_list)}")
 
 
 def __run_day13():
