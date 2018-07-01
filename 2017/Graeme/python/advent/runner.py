@@ -13,6 +13,7 @@ from advent.day.day_9 import Day9
 from advent.day.day_10 import Day10
 from advent.day.day_11 import Day11
 from advent.day.day_12 import Day12
+from advent.day.day_13 import Day13
 
 
 def __run():
@@ -67,6 +68,9 @@ def run_days(days=None):
 
     if all_days or 12 in days:
         __run_day12()
+
+    if all_days or 13 in days:
+        __run_day13()
 
 
 def __run_day1():
@@ -281,7 +285,19 @@ def __run_day12():
 
 
 def __run_day13():
-    pass
+    in_file = pathlib.Path.cwd().parent.parent / 'data' / 'day_13.txt'
+    input_list = []
+    with open(in_file) as f:
+        for line in f:
+            input_list.append(line.rstrip())
+
+    print("Day 13")
+
+    # Part 1
+    print(f"  Part One: {Day13.part_1(input_list)}")
+
+    # Part 2
+    print(f"  Part Two: {Day13.part_2(input_list)}")
 
 
 def __run_day14():
