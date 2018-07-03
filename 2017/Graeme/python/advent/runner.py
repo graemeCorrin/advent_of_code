@@ -16,6 +16,8 @@ from advent.day.day_12 import Day12
 from advent.day.day_13 import Day13
 from advent.day.day_14 import Day14
 from advent.day.day_15 import Day15
+from advent.day.day_16 import Day16
+from advent.day.day_17 import Day17
 
 
 def __run():
@@ -79,6 +81,12 @@ def run_days(days=None):
 
     if all_days or 15 in days:
         __run_day15()
+
+    if all_days or 16 in days:
+        __run_day16()
+
+    if all_days or 17 in days:
+        __run_day17()
 
 
 def __run_day1():
@@ -328,6 +336,34 @@ def __run_day15():
 
     # Part 2
     print(f"  Part Two: {Day15.part_2(591, 393)}")
+
+
+def __run_day16():
+    in_file = pathlib.Path.cwd().parent / 'data' / 'day_16.txt'
+    input_list = []
+    with open(in_file) as f:
+        for line in f:
+            input_list = line.split(',')
+            break
+
+    print("Day 16")
+
+    # Part 1
+    print(f"  Part One: {Day16.part_1(input_list, 'abcdefghijklmnop')}")
+
+    # Part 2
+    print(f"  Part Two: {Day16.part_2(input_list, 'abcdefghijklmnop')}")
+
+
+def __run_day17():
+
+    print("Day 17")
+
+    # Part 1
+    print(f"  Part One: {Day17.part_1(335)}")
+
+    # Part 2
+    print(f"  Part Two: {Day17.part_2(335)}")
 
 
 if __name__ == "__main__":
