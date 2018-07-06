@@ -1,8 +1,6 @@
-import pathlib
-from collections import deque
-from threading import Thread, Lock
+from threading import Lock
 from queue import Queue
-from collections import defaultdict
+from multiprocessing.pool import ThreadPool
 
 
 class Day18:
@@ -39,30 +37,24 @@ class Day18:
 
     @staticmethod
     def part_2(cmds: list) -> int:
+        pool = ThreadPool(processes=2)
+
+        lock = Lock()
         p1_q = Queue()
         p2_q = Queue()
 
-        # Probably not the most ideal way to capture my desired return value, but we're going with it
-        return_value = Queue()
+        async_p0 = pool.apply_async(Day18.__process_commands, (cmds, 0, p1_q, p2_q, lock))
+        async_p1 = pool.apply_async(Day18.__process_commands, (cmds, 1, p2_q, p1_q, lock))
 
-        lock = Lock()
-
-        puzzle_thread_1 = Thread(target=Day18.__process_commands, args=(cmds, 0, p1_q, p2_q, lock))
-        puzzle_thread_2 = Thread(target=Day18.__process_commands, args=(cmds, 1, p2_q, p1_q, lock, return_value))
-
-        puzzle_thread_1.start()
-        puzzle_thread_2.start()
-
-        return return_value.get()
+        return async_p1.get()
 
     @staticmethod
-    def __process_commands(cmds: list, thread_id: int, in_q: Queue, out_q: Queue, lock: Lock, ret: Queue=None):
+    def __process_commands(cmds: list, thread_id: int, in_q: Queue, out_q: Queue, lock: Lock):
 
         registers = 'abcdefghijklmnopqrstuvwxyz'
         reg = dict(zip(registers, [0] * len(registers)))
         reg['p'] = thread_id
         snd_msgs = 0
-        rcv_msgs = 0
 
         i = 0
         while 0 <= i < len(cmds):
@@ -88,16 +80,10 @@ class Day18:
                 try:
                     reg[cmd[1]] = in_q.get(block=True, timeout=5)
                 except:
-                    # print(f"no more messages left for Program {thread_id}")
                     break
-                rcv_msgs += 1
             i += 1
 
-        # with lock:
-            # print(f"{thread_id}: {snd_msgs} sent, {rcv_msgs} received")
-
-        if ret:
-            ret.put(snd_msgs)
+        return snd_msgs
 
     @staticmethod
     def to_int(val):
