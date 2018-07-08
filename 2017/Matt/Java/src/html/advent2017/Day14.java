@@ -1,18 +1,37 @@
 package html.advent2017;
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashSet;
 
 class Day14 extends DayBase {
-  String puzzleInput = "nbysizxe";
+  private String dataFile = "data/day14";
+  private String puzzleInput;
 
 
   void solution() {
+    getData();
     int[][] hashInput = getHashInput(puzzleInput);
     System.out.println(part1(hashInput));
     System.out.println(part2(hashInput));
+  }
 
 
+  private void getData() {
+    String line = null;
+
+    try {
+      FileReader fRead = new FileReader(dataFile);
+      BufferedReader bRead = new BufferedReader(fRead);
+      line = bRead.readLine();
+      bRead.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    puzzleInput = line;
   }
 
 

@@ -1,12 +1,34 @@
 package html.advent2017;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 class Day17 extends DayBase {
-  private int stepsPerSpin = 329;
+  private String dataFile = "data/day17";
+  private int stepsPerSpin;
 
 
   void solution() {
+    getData();
     System.out.println(part1(stepsPerSpin));
     System.out.println(part2(stepsPerSpin));
+  }
+
+
+  private void getData() {
+    String line = "";
+
+    try {
+      FileReader fRead = new FileReader(dataFile);
+      BufferedReader bRead = new BufferedReader(fRead);
+      line = bRead.readLine();
+      bRead.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    stepsPerSpin = Integer.parseInt(line);
   }
 
 

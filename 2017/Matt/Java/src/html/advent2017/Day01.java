@@ -11,7 +11,7 @@ class Day01 extends DayBase {
 
 
   void solution() {
-    puzzleInput = getInput();
+    puzzleInput = getData();
     inLength = puzzleInput.length();
     System.out.println(compare(1));             // Part 1
     System.out.println(compare(inLength / 2));  // Part 2
@@ -29,7 +29,7 @@ class Day01 extends DayBase {
   }
 
 
-  private String getInput() {
+  private String getData() {
     String line = null;
 
     try {

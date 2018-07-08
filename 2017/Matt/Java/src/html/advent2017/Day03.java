@@ -1,6 +1,11 @@
 package html.advent2017;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 class Day03 extends DayBase {
+  private String dataFile = "data/day03";
   private int puzzleInput = 277678;
 
   enum cardinalDirection {
@@ -9,8 +14,25 @@ class Day03 extends DayBase {
 
 
   void solution() {
+    puzzleInput = Integer.parseInt(getData());
     System.out.println(manhattanSteps());   // Part 1
     System.out.println(sumSpiral());        // Part 2
+  }
+
+
+  private String getData() {
+    String line = null;
+
+    try {
+      FileReader fRead = new FileReader(dataFile);
+      BufferedReader bRead = new BufferedReader(fRead);
+      line = bRead.readLine();
+      bRead.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    return line;
   }
 
 
