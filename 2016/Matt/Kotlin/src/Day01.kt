@@ -94,3 +94,9 @@ class Day01() : DayBase() {
         return (abs(seen[0]) + abs(seen[1]))
     }
 }
+
+
+fun main(args: Array<String>) {
+    val day = Day01()
+    day.solution()
+}
