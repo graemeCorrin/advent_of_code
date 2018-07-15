@@ -160,6 +160,12 @@ enarar
 <p>Given the recording in your puzzle input, <em>what is the error-corrected version</em> of the message being sent?</p>
 </article>
 
+<article class="day-desc"><h2>--- Part Two ---</h2><p>Of course, that <em>would</em> be the message - if you hadn't agreed to use a <em>modified repetition code</em> instead.</p>
+<p>In this <span title="*Please* don't try this at home.">modified code</span>, the sender instead transmits what looks like random data, but for each character, the character they actually want to send is <em>slightly less likely</em> than the others. Even after signal-jamming noise, you can look at the letter distributions in each column and choose the <em>least common</em> letter to reconstruct the original message.</p>
+<p>In the above example, the least common character in the first column is <code>a</code>; in the second, <code>d</code>, and so on. Repeating this process for the remaining characters produces the original message, <code>advent</code>.</p>
+<p>Given the recording in your puzzle input and this new decoding methodology, <em>what is the original message</em> that Santa is trying to send?</p>
+</article>
+
 
 
 <article class="day-desc"><h2>--- Day 7: Internet Protocol Version 7 ---</h2><p>While snooping around the local network of EBHQ, you compile a list of <a href="https://en.wikipedia.org/wiki/IP_address">IP addresses</a> (they're IPv7, of course; <a href="https://en.wikipedia.org/wiki/IPv6">IPv6</a> is much too limited). You'd like to figure out which IPs support <em>TLS</em> (transport-layer snooping).</p>
