@@ -4,8 +4,8 @@ import java.io.File
 import kotlin.math.max
 
 
-class Day03() : DayBase() {
-    val dataFile = "data/day03"
+class Day03 : DayBase() {
+    private val dataFile = "data/day03"
 
     override fun solution() {
         val data = getData()

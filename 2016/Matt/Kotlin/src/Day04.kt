@@ -2,13 +2,14 @@ package html.advent2016
 
 import java.io.File
 
-class Day04() : DayBase() {
-    val dataFile = "data/day04"
+class Day04 : DayBase() {
+    private val dataFile = "data/day04"
+    private var realRoomData = listOf<Pair<String, Int>>()
 
 
     override fun solution() {
         val data = getData()
-        val realRoomData = part1(data)
+        println(part1(data))
         println(part2(realRoomData))
     }
 
@@ -31,7 +32,7 @@ class Day04() : DayBase() {
     }
 
 
-    private fun part1(data: List<Triple<String, String, Int>>): List<Pair<String, Int>> {
+    private fun part1(data: List<Triple<String, String, Int>>): Int {
         var validSectorSum = 0
         val realRoomList: MutableList<Pair<String, Int>> = mutableListOf()
 
@@ -61,9 +62,9 @@ class Day04() : DayBase() {
                 realRoomList.add(Pair(line.first, sectorID))
             }
         }
+        realRoomData = realRoomList.toList()
 
-        println(validSectorSum)
-        return realRoomList.toList()
+        return validSectorSum
     }
 
 

@@ -1,7 +1,7 @@
 package html.advent2016
 
-class Day() : DayBase() {
-    val dataFile = "data/day"
+class Day : DayBase() {
+    private val dataFile = "data/day"
 
     override fun solution() {
         val data = getData()

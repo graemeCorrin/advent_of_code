@@ -2,7 +2,7 @@ package html.advent2016
 
 import java.io.File
 
-class Day02() : DayBase() {
+class Day02 : DayBase() {
     private val dataFile = "data/day02"
     private val keyPadOne = arrayOf(arrayOf('1','2','3'), arrayOf('4','5','6'), arrayOf('7','8','9'))
     private val keyPadTwo = arrayOf(arrayOf('0','0','1','0','0'), arrayOf('0','2','3','4','0')

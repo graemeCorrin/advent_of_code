@@ -4,7 +4,7 @@ import java.io.BufferedReader
 import java.io.File
 import kotlin.math.abs
 
-class Day01() : DayBase() {
+class Day01 : DayBase() {
     private val dataFile = "data/day01";
     private val turnMap = mapOf("L" to -1, "R" to 1)
 
