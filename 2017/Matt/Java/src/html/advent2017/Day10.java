@@ -1,10 +1,14 @@
 package html.advent2017;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 
 class Day10 extends DayBase {
-  private int[] inputList = {189, 1, 111, 246, 254, 2, 0, 120, 215, 93, 255, 50, 84, 15, 94, 62};
-  private String inputString = "189,1,111,246,254,2,0,120,215,93,255,50,84,15,94,62";
+  private String dataFile = "data/day10";
+  private int[] inputList;
+  private String inputString;
 
 
   void solution() {
@@ -15,9 +19,28 @@ class Day10 extends DayBase {
 
 
   private int[] getData() {
+    String line = "";
+
+    try {
+      FileReader fRead = new FileReader(dataFile);
+      BufferedReader bRead = new BufferedReader(fRead);
+      line = bRead.readLine();
+      bRead.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    inputString = line;
+
+    String[] temp = line.split(",");
+    inputList = new int[temp.length];
+
+    for (int i = 0; i < temp.length; i++) {
+      inputList[i] = Integer.parseInt(temp[i]);
+    }
+
     int[] data = new int[256];
-    for (int i = 0; i < 256; i++) {
-      data[i] = i;
+    for (int j = 0; j < 256; j++) {
+      data[j] = j;
     }
     return data;
   }

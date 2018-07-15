@@ -1,4 +1,5 @@
-<article class="day-desc"><h2>--- Day 1: No Time for a Taxicab ---</h2><p>Santa's sleigh uses a <span title="An atomic clock is too inaccurate; he might end up in a wall!">very high-precision clock</span> to guide its movements, and the clock's oscillator is regulated by stars. Unfortunately, the stars have been stolen... by the Easter Bunny.  To save Christmas, Santa needs you to retrieve all <em class="star">fifty stars</em> by December 25th.</p>
+<article class="day-desc"><h2>--- Day 1: No Time for a Taxicab ---</h2>
+<p>Santa's sleigh uses a <span title="An atomic clock is too inaccurate; he might end up in a wall!">very high-precision clock</span> to guide its movements, and the clock's oscillator is regulated by stars. Unfortunately, the stars have been stolen... by the Easter Bunny.  To save Christmas, Santa needs you to retrieve all <em class="star">fifty stars</em> by December 25th.</p>
 <p>Collect stars by solving puzzles.  Two puzzles will be made available on each day in the advent calendar; the second puzzle is unlocked when you complete the first.  Each puzzle grants <em class="star">one star</em>. Good luck!</p>
 <p>You're airdropped near <em>Easter Bunny Headquarters</em> in a city somewhere.  "Near", unfortunately, is as close as you can get - the instructions on the Easter Bunny Recruiting Document the Elves intercepted start here, and nobody had time to work them out further.</p>
 <p>The Document indicates that you should start at the given coordinates (where you just landed) and face North.  Then, follow the provided sequence: either turn left (<code>L</code>) or right (<code>R</code>) 90 degrees, then walk forward the given number of blocks, ending at a new intersection.</p>
@@ -11,6 +12,13 @@
 </ul>
 <p><em>How many blocks away</em> is Easter Bunny HQ?</p>
 </article>
+
+<article class="day-desc"><h2>--- Part Two ---</h2><p>Then, you notice the instructions continue on the back of the Recruiting Document.  Easter Bunny HQ is actually at the first location you visit twice.</p>
+<p>For example, if your instructions are <code>R8, R4, R4, R8</code>, the first location you visit twice is <code>4</code> blocks away, due East.</p>
+<p>How many blocks away is the <em>first location you visit twice</em>?</p>
+</article>
+
+
 
 <article class="day-desc"><h2>--- Day 2: Bathroom Security ---</h2><p>You arrive at <em>Easter Bunny Headquarters</em> under cover of darkness. However, you left in such a rush that you forgot to use the bathroom! Fancy office buildings like this one usually have keypad locks on their bathrooms, so you search the front desk for the code.</p>
 <p>"In order to improve security," the document you find says, "bathroom codes will no longer be written down.  Instead, please memorize and follow the procedure below to access the bathrooms."</p>
@@ -36,12 +44,47 @@ UUUUD
 <p>Your puzzle input is the instructions from the document you found at the front desk. What is the <em>bathroom code</em>?</p>
 </article>
 
+<article class="day-desc"><h2>--- Part Two ---</h2><p>You finally arrive at the bathroom (it's a several minute walk from the lobby so visitors can behold the many fancy conference rooms and water coolers on this floor) and go to punch in the code.  Much to your bladder's dismay, the keypad is not at all like you imagined it.  Instead, you are confronted with the result of hundreds of man-hours of <span title="User Group 143 found a diamond shape to be the most environmentally friendly.">bathroom-keypad-design meetings</title>:</p>
+<pre><code>    1
+  2 3 4
+5 6 7 8 9
+  A B C
+    D
+</code></pre>
+<p>You still start at "5" and stop when you're at an edge, but given the same instructions as above, the outcome is very different:</p>
+<ul>
+<li>You start at "5" and don't move at all (up and left are both edges), ending at <code>5</code>.</li>
+<li>Continuing from "5", you move right twice and down three times (through "6", "7", "B", "D", "D"), ending at <code>D</code>.</li>
+<li>Then, from "D", you move five more times (through "D", "B", "C", "C", "B"), ending at <code>B</code>.</li>
+<li>Finally, after five more moves, you end at <code>3</code>.</li>
+</ul>
+<p>So, given the actual keypad layout, the code would be <code>5DB3</code>.</p>
+<p>Using the same instructions in your puzzle input, what is the correct <em>bathroom code</em>?</p>
+</article>
+
+
+
 <article class="day-desc"><h2>--- Day 3: Squares With Three Sides ---</h2><p>Now that you can think clearly, you move deeper into the labyrinth of hallways and office furniture that makes up this part of Easter Bunny HQ. This must be a graphic design department; the walls are covered in specifications for triangles.</p>
 <p>Or are they?</p>
 <p>The design document gives the side lengths of each triangle it describes, but... <code>5 10 25</code>?  Some of these aren't triangles. You can't help but mark the impossible ones.</p>
 <p>In a valid triangle, the sum of any two sides must be larger than the remaining side.  For example, the "triangle" given above is <span title="Unless it's on a sphere!">impossible</span>, because <code>5 + 10</code> is not larger than <code>25</code>.</p>
 <p>In your puzzle input, <em>how many</em> of the listed triangles are <em>possible</em>?</p>
 </article>
+
+<article class="day-desc"><h2>--- Part Two ---</h2><p>Now that you've helpfully marked up their design documents, it occurs to you that triangles are specified in groups of three <em>vertically</em>.  Each set of three numbers in a column specifies a triangle.  Rows are unrelated.</p>
+<p>For example, given the following specification, numbers with the same hundreds digit would be part of the same triangle:</p>
+<pre><code>101 301 501
+102 302 502
+103 303 503
+201 401 601
+202 402 602
+203 403 603
+</code></pre>
+<p>In your puzzle input, and instead reading by columns, <em>how many</em> of the listed triangles are <em>possible</em>?</p>
+</article>
+
+
+
 
 <article class="day-desc"><h2>--- Day 4: Security Through Obscurity ---</h2><p>Finally, you come across an information kiosk with a list of rooms.  Of course, the list is encrypted and full of decoy data, but the instructions to decode the list are barely hidden nearby.  Better remove the decoy data first.</p>
 <p>Each room consists of an encrypted name (lowercase letters separated by dashes) followed by a dash, a sector ID, and a checksum in square brackets.</p>
@@ -56,6 +99,15 @@ UUUUD
 <p>What is the <em>sum of the sector IDs of the real rooms</em>?</p>
 </article>
 
+<article class="day-desc"><h2>--- Part Two ---</h2><p>With all the decoy data out of the way, it's time to decrypt this list and get moving.</p>
+<p>The room names are encrypted by a state-of-the-art <a href="https://en.wikipedia.org/wiki/Caesar_cipher">shift cipher</a>, which is nearly unbreakable without <span title="...or, like, half of a napkin.">the right software</span>. However, the information kiosk designers at Easter Bunny HQ were not expecting to deal with a master cryptographer like yourself.</p>
+<p>To decrypt a room name, rotate each letter forward through the alphabet a number of times equal to the room's sector ID.  <code>A</code> becomes <code>B</code>, <code>B</code> becomes <code>C</code>, <code>Z</code> becomes <code>A</code>, and so on. Dashes become spaces.</p>
+<p>For example, the real name for <code>qzmt-zixmtkozy-ivhz-343</code> is <code>very encrypted name</code>.</p>
+<p><em>What is the sector ID</em> of the room where North Pole objects are stored?</p>
+</article>
+
+
+
 <article class="day-desc"><h2>--- Day 5: How About a Nice Game of Chess? ---</h2><p>You are faced with a security door designed by Easter Bunny engineers that seem to have acquired most of their security knowledge by watching <a href="https://en.wikipedia.org/wiki/Hackers_(film)">hacking</a> <a href="https://en.wikipedia.org/wiki/WarGames">movies</a>.</p>
 <p>The <em>eight-character password</em> for the door is generated one character at a time by finding the <a href="https://en.wikipedia.org/wiki/MD5">MD5</a> hash of some Door ID (your puzzle input) and an increasing integer index (starting with <code>0</code>).</p>
 <p>A hash indicates the <em>next character</em> in the password if its <a href="https://en.wikipedia.org/wiki/Hexadecimal">hexadecimal</a> representation starts with <em>five zeroes</em>. If it does, the sixth character in the hash is the next character of the password.</p>
@@ -68,6 +120,8 @@ UUUUD
 <p>In this example, after continuing this search a total of eight times, the password is <code>18f47a30</code>.</p>
 <p>Given the actual Door ID, <em>what is the password</em>?</p>
 </article>
+
+
 
 <article class="day-desc"><h2>--- Day 6: Signals and Noise ---</h2><p>Something is jamming your communications with Santa. Fortunately, your signal is only partially jammed, and protocol in situations like this is to switch to a simple <a href="https://en.wikipedia.org/wiki/Repetition_code">repetition code</a> to get the message through.</p>
 <p>In this model, the same message is sent repeatedly.  You've recorded the repeating message signal (your puzzle input), but the data seems quite corrupted - almost too badly to recover. <em>Almost</em>.</p>
@@ -93,6 +147,8 @@ enarar
 <p>Given the recording in your puzzle input, <em>what is the error-corrected version</em> of the message being sent?</p>
 </article>
 
+
+
 <article class="day-desc"><h2>--- Day 7: Internet Protocol Version 7 ---</h2><p>While snooping around the local network of EBHQ, you compile a list of <a href="https://en.wikipedia.org/wiki/IP_address">IP addresses</a> (they're IPv7, of course; <a href="https://en.wikipedia.org/wiki/IPv6">IPv6</a> is much too limited). You'd like to figure out which IPs support <em>TLS</em> (transport-layer snooping).</p>
 <p>An IP supports TLS if it has an Autonomous Bridge Bypass Annotation, or <span title="Any similarity to the pattern it describes is purely coincidental."><em>ABBA</em></span>.  An ABBA is any four-character sequence which consists of a pair of two different characters followed by the reverse of that pair, such as <code>xyyx</code> or <code>abba</code>.  However, the IP also must not have an ABBA within any hypernet sequences, which are contained by <em>square brackets</em>.</p>
 <p>For example:</p>
@@ -104,6 +160,8 @@ enarar
 </ul>
 <p><em>How many IPs</em> in your puzzle input support TLS?</p>
 </article>
+
+
 
 <article class="day-desc"><h2>--- Day 8: Two-Factor Authentication ---</h2><p>You come across a door implementing what you can only assume is an implementation of <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">two-factor authentication</a> after a long game of <a href="https://en.wikipedia.org/wiki/Requirement">requirements</a> <a href="https://en.wikipedia.org/wiki/Chinese_whispers">telephone</a>.</p>
 <p>To get past the door, you first swipe a keycard (no problem; there was one on a nearby desk). Then, it displays a code on a <a href="https://www.google.com/search?q=tiny+lcd&tbm=isch">little screen</a>, and you type that code on a keypad. Then, presumably, the door unlocks.</p>
@@ -133,6 +191,8 @@ enarar
 <p>There seems to be an intermediate check of the voltage used by the display: after you swipe your card, if the screen did work, <em>how many pixels should be lit?</em></p>
 </article>
 
+
+
 <article class="day-desc"><h2>--- Day 9: Explosives in Cyberspace ---</h2><p>Wandering around a secure area, you come across a datalink port to a new part of the network. After briefly scanning it for interesting files, you find one file in particular that catches your attention. It's compressed with an experimental format, but fortunately, the documentation for the format is nearby.</p>
 <p>The format compresses a sequence of characters. Whitespace is ignored. To indicate that some sequence should be repeated, a marker is added to the file, like <code>(10x2)</code>. To decompress this marker, take the subsequent <code>10</code> characters and repeat them <code>2</code> times. Then, continue reading the file <em>after</em> the repeated data.  The marker itself is not included in the decompressed output.</p>
 <p>If parentheses or other characters appear within the data referenced by a marker, that's okay - treat it like normal data, not a marker, and then resume looking for markers after the decompressed section.</p>
@@ -147,6 +207,8 @@ enarar
 </ul>
 <p>What is the <em>decompressed length</em> of the file (your puzzle input)? Don't count whitespace.</p>
 </article>
+
+
 
 <article class="day-desc"><h2>--- Day 10: Balance Bots ---</h2><p>You come upon a factory in which many robots are <a href="https://www.youtube.com/watch?v=JnkMyfQ5YfY&t=40">zooming around</a> handing small microchips to each other.</p>
 <p>Upon closer examination, you notice that each bot only proceeds when it has <em>two</em> microchips, and once it does, it gives each one to a different bot or puts it in a marked "output" bin. Sometimes, bots take microchips from "input" bins, too.</p>
@@ -169,6 +231,8 @@ value 2 goes to bot 2
 <p>In the end, output bin <code>0</code> contains a value-<code>5</code> microchip, output bin <code>1</code> contains a value-<code>2</code> microchip, and output bin <code>2</code> contains a value-<code>3</code> microchip. In this configuration, bot number <em><code>2</code></em> is responsible for comparing value-<code>5</code> microchips with value-<code>2</code> microchips.</p>
 <p>Based on your instructions, <em>what is the number of the bot</em> that is responsible for comparing value-<code>61</code> microchips with value-<code>17</code> microchips?</p>
 </article>
+
+
 
 <article class="day-desc"><h2>--- Day 11: Radioisotope Thermoelectric Generators ---</h2><p>You come upon a column of four floors that have been entirely sealed off from the rest of the building except for a small dedicated lobby.  There are some radiation warnings and a big sign which reads "Radioisotope Testing Facility".</p>
 <p>According to the project status board, this facility is currently being used to experiment with <a href="https://en.wikipedia.org/wiki/Radioisotope_thermoelectric_generator">Radioisotope Thermoelectric Generators</a> (RTGs, or simply "generators") that are designed to be paired with specially-constructed microchips. Basically, an RTG is a highly radioactive rock that generates electricity through heat.</p>
@@ -252,6 +316,8 @@ F1 .  .  .  .  .
 <p>In your situation, what is the <em>minimum number of steps</em> required to bring all of the objects to the fourth floor?</p>
 </article>
 
+
+
 <article class="day-desc"><h2>--- Day 12: Leonardo's Monorail ---</h2><p>You finally reach the top floor of this building: a garden with a slanted glass ceiling. Looks like there are no more stars to be had.</p>
 <p>While sitting on a nearby bench amidst some <a href="https://www.google.com/search?q=tiger+lilies&tbm=isch">tiger lilies</a>, you manage to decrypt some of the files you extracted from the servers downstairs.</p>
 <p>According to these documents, Easter Bunny HQ isn't just this building - it's a collection of buildings in the nearby area. They're all connected by a local monorail, and there's another building not far from here! Unfortunately, being night, the monorail is currently not operating.</p>
@@ -275,6 +341,8 @@ dec a
 <p>The above code would set register <code>a</code> to <code>41</code>, increase its value by <code>2</code>, decrease its value by <code>1</code>, and then skip the last <code>dec a</code> (because <code>a</code> is not zero, so the <code>jnz a 2</code> skips it), leaving register <code>a</code> at <code>42</code>. When you move past the last instruction, the program halts.</p>
 <p>After executing the assembunny code in your puzzle input, <em>what value is left in register <code>a</code>?</em></p>
 </article>
+
+
 
 <article class="day-desc"><h2>--- Day 13: A Maze of Twisty Little Cubicles ---</h2><p>You arrive at the first floor of this new building to discover a much less welcoming environment than the shiny atrium of the last one.  Instead, you are in a maze of <span title="You are in a twisty alike of little cubicles, all maze.">twisty little cubicles</span>, all alike.</p>
 <p>Every location in this area is addressed by a pair of non-negative integers (<code>x,y</code>). Each such coordinate is either a wall or an open space. You can't move diagonally. The cube maze starts at <code>0,0</code> and seems to extend infinitely toward <em>positive</em> <code>x</code> and <code>y</code>; negative values are <em>invalid</em>, as they represent a location outside the building. You are in a small waiting area at <code>1,1</code>.</p>
@@ -313,6 +381,8 @@ dec a
 <p>What is the <em>fewest number of steps required</em> for you to reach <code>31,39</code>?</p>
 </article>
 
+
+
 <article class="day-desc"><h2>--- Day 14: One-Time Pad ---</h2><p>In order to communicate securely with Santa while you're on this mission, you've been using a <a href="https://en.wikipedia.org/wiki/One-time_pad">one-time pad</a> that you <a href="https://en.wikipedia.org/wiki/Security_through_obscurity">generate</a> using a <span title="This also happens to be the plot of World War II.">pre-agreed algorithm</span>. Unfortunately, you've run out of keys in your one-time pad, and so you need to generate some more.</p>
 <p>To generate keys, you first get a stream of random data by taking the <a href="https://en.wikipedia.org/wiki/MD5">MD5</a> of a pre-arranged <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a> (your puzzle input) and an increasing integer index (starting with <code>0</code>, and represented in decimal); the resulting MD5 hash should be represented as a string of <em>lowercase</em> hexadecimal digits.</p>
 <p>However, not all of these MD5 hashes are <em>keys</em>, and you need <code>64</code> new keys for your one-time pad.  A hash is a key <em>only if</em>:</p>
@@ -332,6 +402,8 @@ dec a
 <p>Given the actual salt in your puzzle input, <em>what index</em> produces your <code>64</code>th one-time pad key?</p>
 </article>
 
+
+
 <article class="day-desc"><h2>--- Day 15: Timing is Everything ---</h2><p>The halls open into an interior plaza containing a large kinetic sculpture. The sculpture is in a sealed enclosure and seems to involve a set of identical spherical capsules that are carried to the top and allowed to <a href="https://youtu.be/IxDoO9oODOk?t=177">bounce through the maze</a> of spinning pieces.</p>
 <p>Part of the sculpture is even interactive! When a button is pressed, a capsule is dropped and tries to fall through slots in a set of rotating discs to finally go through a little hole at the bottom and come out of the sculpture. If any of the slots aren't aligned with the capsule as it passes, the capsule bounces off the disc and soars away. You feel compelled to <span title="These machines are everywhere in Japan, but on a MUCH smaller scale.">get one of those capsules</span>.</p>
 <p>The discs pause their motion each second and come in different sizes; they seem to each have a fixed number of positions at which they stop.  You decide to call the position with the slot <code>0</code>, and count up for each position it reaches next.</p>
@@ -346,6 +418,8 @@ Disc #2 has 2 positions; at time=0, it is at position 1.
 <p>If, however, you wait until <code>time=5</code> to push the button, then when the capsule reaches each disc, the first disc will have ticked forward <code>5+1 = 6</code> times (to position <code>0</code>), and the second disc will have ticked forward <code>5+2 = 7</code> times (also to position <code>0</code>). In this case, the capsule would fall through the discs and come out of the machine.</p>
 <p>However, your situation has more than two discs; you've noted their positions in your puzzle input. What is the <em>first time you can press the button</em> to get a capsule?</p>
 </article>
+
+
 
 <article class="day-desc"><h2>--- Day 16: Dragon Checksum ---</h2><p>You're done scanning this part of the network, but you've left traces of your presence. You need to <span title="If I ever find one of my disks overwritten with a dragon curve, I'll know it was you.">overwrite some disks</span> with random-looking data to cover your tracks and update the local security system with a new checksum for those disks.</p>
 <p>For the data to not be suspicious, it needs to have certain properties; purely random data will be detected as tampering. To generate appropriate random data, you'll need to use a modified <a href="https://en.wikipedia.org/wiki/Dragon_curve">dragon curve</a>.</p>
@@ -389,6 +463,8 @@ Disc #2 has 2 positions; at time=0, it is at position 1.
 <p>The first disk you have to fill has length <code>272</code>. Using the initial state in your puzzle input, <em>what is the correct checksum</em>?</p>
 </article>
 
+
+
 <article class="day-desc"><h2>--- Day 17: Two Steps Forward ---</h2><p>You're trying to access a secure vault protected by a <code>4x4</code> grid of small rooms connected by doors. You start in the top-left room (marked <code>S</code>), and you can access the vault (marked <code>V</code>) once you reach the bottom-right room:</p>
 <pre><code>#########
 #S| | | #
@@ -415,6 +491,8 @@ Disc #2 has 2 positions; at time=0, it is at position 1.
 </ul>
 <p>Given your vault's passcode, <em>what is the shortest path</em> (the actual path, not just the length) to reach the vault?</p>
 </article>
+
+
 
 <article class="day-desc"><h2>--- Day 18: Like a Rogue ---</h2><p>As you enter this room, you hear a loud click! Some of the tiles in the floor here seem to be pressure plates for <a href="https://nethackwiki.com/wiki/Trap">traps</a>, and the trap you just triggered has run out of... whatever it tried to do to you. You doubt you'll be so lucky next time.</p>
 <p>Upon closer examination, the traps and safe tiles in this room seem to follow a pattern. The tiles are arranged into rows that are all the same width; you take note of the safe tiles (<code>.</code>) and traps (<code>^</code>) in the first row (your puzzle input).</p>
@@ -459,6 +537,8 @@ Disc #2 has 2 positions; at time=0, it is at position 1.
 <p>Starting with the map in your puzzle input, in a total of <code>40</code> rows (including the starting row), <em>how many safe tiles</em> are there?</p>
 </article>
 
+
+
 <article class="day-desc"><h2>--- Day 19: An Elephant Named Joseph ---</h2><p>The Elves contact you over a highly secure emergency channel. Back at the North Pole, the Elves are busy <span title="Eggnoggedly misunderstanding them, actually.">misunderstanding</span> <a href="https://en.wikipedia.org/wiki/White_elephant_gift_exchange">White Elephant parties</a>.</p>
 <p>Each Elf brings a present. They all sit in a circle, numbered starting with position <code>1</code>. Then, starting with the first Elf, they take turns stealing all the presents from the Elf to their left.  An Elf with no presents is removed from the circle and does not take turns.</p>
 <p>For example, with five Elves (numbered <code>1</code> to <code>5</code>):</p>
@@ -479,6 +559,8 @@ Disc #2 has 2 positions; at time=0, it is at position 1.
 <p>With the number of Elves given in your puzzle input, <em>which Elf gets all the presents?</em></p>
 </article>
 
+
+
 <article class="day-desc"><h2>--- Day 20: Firewall Rules ---</h2><p>You'd like to set up a small hidden computer here so you can use it to <span title="I'll create a GUI interface using Visual Basic... see if I can track an IP address.">get back into the network</span> later. However, the corporate firewall only allows communication with certain external <a href="https://en.wikipedia.org/wiki/IPv4#Addressing">IP addresses</a>.</p>
 <p>You've retrieved the list of blocked IPs from the firewall, but the list seems to be messy and poorly maintained, and it's not clear which IPs are allowed. Also, rather than being written in <a href="https://en.wikipedia.org/wiki/Dot-decimal_notation">dot-decimal</a> notation, they are written as plain <a href="https://en.wikipedia.org/wiki/32-bit">32-bit integers</a>, which can have any value from <code>0</code> through <code>4294967295</code>, inclusive.</p>
 <p>For example, suppose only the values <code>0</code> through <code>9</code> were valid, and that you retrieved the following blacklist:</p>
@@ -489,6 +571,8 @@ Disc #2 has 2 positions; at time=0, it is at position 1.
 <p>The blacklist specifies ranges of IPs (inclusive of both the start and end value) that are <em>not</em> allowed. Then, the only IPs that this firewall allows are <code>3</code> and <code>9</code>, since those are the only numbers not in any range.</p>
 <p>Given the list of blocked IPs you retrieved from the firewall (your puzzle input), <em>what is the lowest-valued IP</em> that is not blocked?</p>
 </article>
+
+
 
 <article class="day-desc"><h2>--- Day 21: Scrambled Letters and Hash ---</h2><p>The computer system you're breaking into uses a <span title="I do not like them, Security-Account-Manager-I-Am! I do not like scrambled letters and hash!">weird scrambling function</span> to store its passwords. It shouldn't be much trouble to create your own scrambled password so you can add it to the system; you just have to implement the scrambler.</p>
 <p>The scrambling function is a series of operations (the exact list is provided in your puzzle input). Starting with the password to be scrambled, apply each operation in succession to the string. The individual operations behave as follows:</p>
@@ -515,6 +599,8 @@ Disc #2 has 2 positions; at time=0, it is at position 1.
 <p>Now, you just need to generate a new scrambled password and you can access the system. Given the list of scrambling operations in your puzzle input, <em>what is the result of scrambling <code>abcdefgh</code></em>?</p>
 </article>
 
+
+
 <article class="day-desc"><h2>--- Day 22: Grid Computing ---</h2><p>You gain access to a massive storage cluster arranged in a grid; each storage node is only connected to the four nodes directly adjacent to it (three if the node is on an edge, two if it's in a corner).</p>
 <p>You can directly access data <em>only</em> on node <code>/dev/grid/node-x0-y0</code>, but you can perform some limited actions on the other nodes:</p>
 <ul>
@@ -531,6 +617,8 @@ Disc #2 has 2 positions; at time=0, it is at position 1.
 </ul>
 <p><em>How many viable pairs</em> of nodes are there?</p>
 </article>
+
+
 
 <article class="day-desc"><h2>--- Day 23: Safe Cracking ---</h2><p>This is one of the top floors of the nicest tower in EBHQ. The Easter Bunny's private office is here, complete with a safe hidden behind a painting, and who <em>wouldn't</em> hide a star in a safe behind a painting?</p>
 <p>The safe has a digital screen and keypad for code entry. A sticky note attached to the safe has a password hint on it: "eggs". The painting is of a large rabbit coloring some eggs. You see <code>7</code>.</p>
@@ -567,6 +655,8 @@ dec a
 <p><em>What value</em> should be sent to the safe?</p>
 </article>
 
+
+
 <article class="day-desc"><h2>--- Day 24: Air Duct Spelunking ---</h2><p>You've finally met your match; the doors that provide access to the roof are locked tight, and all of the controls and related electronics are inaccessible. You simply can't reach them.</p>
 <p>The robot that cleans the air ducts, however, <em>can</em>.</p>
 <p>It's not a very fast <span title="The Brave Little Air Duct Cleaning Robot That Could">little robot</span>, but you reconfigure it to be able to interface with some of the exposed wires that have been routed through the <a href="https://en.wikipedia.org/wiki/HVAC">HVAC</a> system. If you can direct it to each of those locations, you should be able to bypass the security controls.</p>
@@ -588,6 +678,8 @@ dec a
 <p>Since the robot isn't very fast, you need to find it the <em>shortest route</em>. This path is the fewest steps (in the above example, a total of <code>14</code>) required to start at <code>0</code> and then visit every other location at least once.</p>
 <p>Given your actual map, and starting from location <code>0</code>, what is the <em>fewest number of steps</em> required to visit every non-<code>0</code> number marked on the map at least once?</p>
 </article>
+
+
 
 <article class="day-desc"><h2>--- Day 25: Clock Signal ---</h2><p>You open the door and find yourself on the roof. The city sprawls away from you for miles and miles.</p>
 <p>There's not much time now - it's already Christmas, but you're nowhere near the North Pole, much too far to deliver these stars to the sleigh in time.</p>

@@ -1,16 +1,51 @@
 package html.advent2017;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 class Day15 extends DayBase {
-  private long startValueA = 883;
-  private long startValueB = 879;
+  private String dataFile = "data/day15";
+  private long startValueA;
+  private long startValueB;
   private long factorA = 16807;
   private long factorB = 48271;
   private long divider = 2147483647;
 
 
   void solution() {
-    System.out.println(part1());
-    System.out.println(part2());
+    getData();
+    long p1Result = part1();
+    long p2Result = part2();
+    System.out.println("Part 1 final count: " + p1Result);
+    System.out.println("Part 2 final count: " + p2Result);
+  }
+
+
+  private void getData() {
+    String line;
+    int lineCount = 0;
+    String[] lines = new String[2000];
+
+    try {
+      FileReader fRead = new FileReader(dataFile);
+      BufferedReader bRead = new BufferedReader(fRead);
+      while ((line = bRead.readLine()) != null) {
+        lines[lineCount] = line;
+        lineCount++;
+      }
+      bRead.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    String[][] entries = new String[lineCount][];
+    for (int i = 0; i < lineCount; i++) {
+      entries[i] = lines[i].split(" ");
+    }
+
+    startValueA = Integer.parseInt(entries[0][4]);
+    startValueB = Integer.parseInt(entries[1][4]);
   }
 
 
@@ -25,10 +60,13 @@ class Day15 extends DayBase {
       if (compareLast16Bits(valueA, valueB)) {
         count++;
       }
-//      if (i % 1000000 == 0) {
-//        System.out.println(count);
-//      }
+      if (i % 760000 == 0) {
+        long percentComplete = i / 400000;
+        System.out.println("Part 1: " + percentComplete + "% complete...");
+      }
     }
+    System.out.println("Part 1: 100% complete...\n");
+
     return count;
   }
 
@@ -57,7 +95,13 @@ class Day15 extends DayBase {
       if (compareLast16Bits(judgeCard[k][0], judgeCard[k][1])) {
         count++;
       }
+      if (k % 500000 == 0) {
+        long percentComplete = k / 50000;
+        System.out.println("Part 2: " + percentComplete + "% complete...");
+      }
     }
+    System.out.println("Part 2: 100% complete...\n");
+
     return count;
   }
 
