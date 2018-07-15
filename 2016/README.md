@@ -180,6 +180,18 @@ enarar
 <p><em>How many IPs</em> in your puzzle input support TLS?</p>
 </article>
 
+<article class="day-desc"><h2>--- Part Two ---</h2><p>You would also like to know which IPs support <em>SSL</em> (super-secret listening).</p>
+<p>An IP supports SSL if it has an Area-Broadcast Accessor, or <em>ABA</em>, anywhere in the supernet sequences (outside any square bracketed sections), and a corresponding Byte Allocation Block, or <em>BAB</em>, anywhere in the hypernet sequences. An ABA is any three-character sequence which consists of the same character twice with a different character between them, such as <code>xyx</code> or <code>aba</code>. A corresponding BAB is the same characters but in reversed positions: <code>yxy</code> and <code>bab</code>, respectively.</p>
+<p>For example:</p>
+<ul>
+<li><code>aba[bab]xyz</code> supports SSL (<code>aba</code> outside square brackets with corresponding <code>bab</code> within square brackets).</li>
+<li><code>xyx[xyx]xyx</code> does <em>not</em> support SSL (<code>xyx</code>, but no corresponding <code>yxy</code>).</li>
+<li><code>aaa[kek]eke</code> supports SSL (<code>eke</code> in supernet with corresponding <code>kek</code> in hypernet; the <code>aaa</code> sequence is not related, because the interior character must be different).</li>
+<li><code>zazbz[bzb]cdb</code> supports SSL (<code>zaz</code> has no corresponding <code>aza</code>, but <code>zbz</code> has a corresponding <code>bzb</code>, even though <code>zaz</code> and <code>zbz</code> overlap).</li>
+</ul>
+<p><em>How many IPs</em> in your puzzle input support SSL?</p>
+</article>
+
 
 
 <article class="day-desc"><h2>--- Day 8: Two-Factor Authentication ---</h2><p>You come across a door implementing what you can only assume is an implementation of <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication">two-factor authentication</a> after a long game of <a href="https://en.wikipedia.org/wiki/Requirement">requirements</a> <a href="https://en.wikipedia.org/wiki/Chinese_whispers">telephone</a>.</p>
@@ -208,6 +220,10 @@ enarar
 </ul>
 <p>As you can see, this display technology is extremely powerful, and will soon dominate the tiny-code-displaying-screen market.  That's what the advertisement on the back of the display tries to convince you, anyway.</p>
 <p>There seems to be an intermediate check of the voltage used by the display: after you swipe your card, if the screen did work, <em>how many pixels should be lit?</em></p>
+</article>
+
+<article class="day-desc"><h2>--- Part Two ---</h2><p>You notice that the screen is only capable of displaying capital letters; in the font it uses, each letter is <code>5</code> pixels wide and <code>6</code> tall.</p>
+<p>After you swipe your card, <em>what code is the screen trying to display?</em></p>
 </article>
 
 
