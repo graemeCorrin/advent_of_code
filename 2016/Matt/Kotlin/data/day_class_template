@@ -1,0 +1,32 @@
+package html.advent2016
+
+class Day() : DayBase() {
+    val dataFile = "data/day"
+
+    override fun solution() {
+        val data = getData()
+        println(part1(data))
+        println(part2(data))
+    }
+
+
+    private fun getData(): {
+        return emptyList()
+    }
+
+
+    private fun part1(data: ): Int {
+        return 0
+    }
+
+
+    private fun part2(data: ): Int {
+        return 0
+    }
+}
+
+
+fun main(args: Array<String>) {
+    val day = Day()
+    day.solution()
+}

@@ -44,6 +44,24 @@ UUUUD
 <p>Your puzzle input is the instructions from the document you found at the front desk. What is the <em>bathroom code</em>?</p>
 </article>
 
+<article class="day-desc"><h2>--- Part Two ---</h2><p>You finally arrive at the bathroom (it's a several minute walk from the lobby so visitors can behold the many fancy conference rooms and water coolers on this floor) and go to punch in the code.  Much to your bladder's dismay, the keypad is not at all like you imagined it.  Instead, you are confronted with the result of hundreds of man-hours of <span title="User Group 143 found a diamond shape to be the most environmentally friendly.">bathroom-keypad-design meetings</title>:</p>
+<pre><code>    1
+  2 3 4
+5 6 7 8 9
+  A B C
+    D
+</code></pre>
+<p>You still start at "5" and stop when you're at an edge, but given the same instructions as above, the outcome is very different:</p>
+<ul>
+<li>You start at "5" and don't move at all (up and left are both edges), ending at <code>5</code>.</li>
+<li>Continuing from "5", you move right twice and down three times (through "6", "7", "B", "D", "D"), ending at <code>D</code>.</li>
+<li>Then, from "D", you move five more times (through "D", "B", "C", "C", "B"), ending at <code>B</code>.</li>
+<li>Finally, after five more moves, you end at <code>3</code>.</li>
+</ul>
+<p>So, given the actual keypad layout, the code would be <code>5DB3</code>.</p>
+<p>Using the same instructions in your puzzle input, what is the correct <em>bathroom code</em>?</p>
+</article>
+
 
 
 <article class="day-desc"><h2>--- Day 3: Squares With Three Sides ---</h2><p>Now that you can think clearly, you move deeper into the labyrinth of hallways and office furniture that makes up this part of Easter Bunny HQ. This must be a graphic design department; the walls are covered in specifications for triangles.</p>
@@ -52,6 +70,19 @@ UUUUD
 <p>In a valid triangle, the sum of any two sides must be larger than the remaining side.  For example, the "triangle" given above is <span title="Unless it's on a sphere!">impossible</span>, because <code>5 + 10</code> is not larger than <code>25</code>.</p>
 <p>In your puzzle input, <em>how many</em> of the listed triangles are <em>possible</em>?</p>
 </article>
+
+<article class="day-desc"><h2>--- Part Two ---</h2><p>Now that you've helpfully marked up their design documents, it occurs to you that triangles are specified in groups of three <em>vertically</em>.  Each set of three numbers in a column specifies a triangle.  Rows are unrelated.</p>
+<p>For example, given the following specification, numbers with the same hundreds digit would be part of the same triangle:</p>
+<pre><code>101 301 501
+102 302 502
+103 303 503
+201 401 601
+202 402 602
+203 403 603
+</code></pre>
+<p>In your puzzle input, and instead reading by columns, <em>how many</em> of the listed triangles are <em>possible</em>?</p>
+</article>
+
 
 
 
@@ -66,6 +97,13 @@ UUUUD
 </ul>
 <p>Of the real rooms from the list above, the sum of their sector IDs is <code>1514</code>.</p>
 <p>What is the <em>sum of the sector IDs of the real rooms</em>?</p>
+</article>
+
+<article class="day-desc"><h2>--- Part Two ---</h2><p>With all the decoy data out of the way, it's time to decrypt this list and get moving.</p>
+<p>The room names are encrypted by a state-of-the-art <a href="https://en.wikipedia.org/wiki/Caesar_cipher">shift cipher</a>, which is nearly unbreakable without <span title="...or, like, half of a napkin.">the right software</span>. However, the information kiosk designers at Easter Bunny HQ were not expecting to deal with a master cryptographer like yourself.</p>
+<p>To decrypt a room name, rotate each letter forward through the alphabet a number of times equal to the room's sector ID.  <code>A</code> becomes <code>B</code>, <code>B</code> becomes <code>C</code>, <code>Z</code> becomes <code>A</code>, and so on. Dashes become spaces.</p>
+<p>For example, the real name for <code>qzmt-zixmtkozy-ivhz-343</code> is <code>very encrypted name</code>.</p>
+<p><em>What is the sector ID</em> of the room where North Pole objects are stored?</p>
 </article>
 
 
