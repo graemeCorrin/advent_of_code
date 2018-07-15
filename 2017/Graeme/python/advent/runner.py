@@ -19,6 +19,7 @@ from advent.day.day_15 import Day15
 from advent.day.day_16 import Day16
 from advent.day.day_17 import Day17
 from advent.day.day_18 import Day18
+from advent.day.day_19 import Day19
 
 
 def __run():
@@ -91,6 +92,9 @@ def run_days(days=None):
 
     if all_days or 18 in days:
         __run_day18()
+
+    if all_days or 19 in days:
+        __run_day19()
 
 
 def __run_day1():
@@ -385,6 +389,20 @@ def __run_day18():
 
     # Part 2
     print(f"  Part Two: {Day18.part_2(input_list)}")
+
+
+def __run_day19():
+
+    in_file = pathlib.Path.cwd().parent / 'data' / 'day_19.txt'
+
+    print("Day 19")
+    one, two = Day19.walk_path(in_file)
+
+    # Part 1
+    print(f"  Part One: {one}")
+
+    # Part 2
+    print(f"  Part Two: {two}")
 
 
 if __name__ == "__main__":
