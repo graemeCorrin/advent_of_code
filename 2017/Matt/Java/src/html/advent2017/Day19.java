@@ -3,7 +3,6 @@ package html.advent2017;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 
 class Day19 extends DayBase {
   String dataFile = "data/day19";
