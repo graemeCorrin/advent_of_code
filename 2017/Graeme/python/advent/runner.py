@@ -417,9 +417,6 @@ def __run_day20():
     with open(in_file) as file:
         lines = file.read().splitlines()
 
-    example = ['p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>',
-               'p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>']
-
     print("Day 20")
 
     # Part 1

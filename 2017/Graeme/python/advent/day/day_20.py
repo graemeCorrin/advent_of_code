@@ -73,7 +73,7 @@ class Day20:
         return closest_particle.id
 
     @staticmethod
-    def part_2(lines: list):
+    def part_2(lines: list) -> int:
 
         particles = []
         for i in range(len(lines)):
