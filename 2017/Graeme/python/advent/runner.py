@@ -394,9 +394,11 @@ def __run_day18():
 def __run_day19():
 
     in_file = pathlib.Path.cwd().parent / 'data' / 'day_19.txt'
+    with open(in_file) as file:
+        lines = file.read().splitlines()
 
     print("Day 19")
-    one, two = Day19.walk_path(in_file)
+    one, two = Day19.walk_path(lines)
 
     # Part 1
     print(f"  Part One: {one}")

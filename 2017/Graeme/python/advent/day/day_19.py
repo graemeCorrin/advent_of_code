@@ -8,9 +8,7 @@ Direction = Enum('Direction', 'left, right, up, down')
 class Day19:
 
     @staticmethod
-    def walk_path(in_file: pathlib.Path) -> (str, int):
-        with open(in_file) as file:
-            lines = file.read().splitlines()
+    def walk_path(lines: list) -> (str, int):
 
         path = {}
         for y, line in enumerate(lines):
