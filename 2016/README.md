@@ -121,6 +121,19 @@ UUUUD
 <p>Given the actual Door ID, <em>what is the password</em>?</p>
 </article>
 
+<article class="day-desc"><h2>--- Part Two ---</h2><p>As the door slides open, you are presented with a second door that uses a slightly more <span title="This one says 'WOPR' in block letters.">inspired</span> security mechanism. Clearly unimpressed by the last version (in what movie is the password decrypted <em>in order</em>?!), the Easter Bunny engineers have worked out <a href="https://www.youtube.com/watch?v=NHWjlCaIrQo&t=25">a better solution</a>.</p>
+<p>Instead of simply filling in the password from left to right, the hash now also indicates the <em>position</em> within the password to fill. You still look for hashes that begin with five zeroes; however, now, the <em>sixth</em> character represents the <em>position</em> (<code>0</code>-<code>7</code>), and the <em>seventh</em> character is the character to put in that position.</p>
+<p>A hash result of <code>000001f</code> means that <code>f</code> is the <em>second</em> character in the password. Use only the <em>first result</em> for each position, and ignore invalid positions.</p>
+<p>For example, if the Door ID is <code>abc</code>:</p>
+<ul>
+<li>The first interesting hash is from <code>abc3231929</code>, which produces <code>0000015...</code>; so, <code>5</code> goes in position <code>1</code>: <code>_5______</code>.</li>
+<li>In the previous method, <code>5017308</code> produced an interesting hash; however, it is ignored, because it specifies an invalid position (<code>8</code>).</li>
+<li>The second interesting hash is at index <code>5357525</code>, which produces <code>000004e...</code>; so, <code>e</code> goes in position <code>4</code>: <code>_5__e___</code>.</li>
+</ul>
+<p>You almost choke on your popcorn as the final character falls into place, producing the password <code>05ace8e3</code>.</p>
+<p>Given the actual Door ID and this new method, <em>what is the password</em>? Be extra proud of your solution if it uses a cinematic "decrypting" animation.</p>
+</article>
+
 
 
 <article class="day-desc"><h2>--- Day 6: Signals and Noise ---</h2><p>Something is jamming your communications with Santa. Fortunately, your signal is only partially jammed, and protocol in situations like this is to switch to a simple <a href="https://en.wikipedia.org/wiki/Repetition_code">repetition code</a> to get the message through.</p>
@@ -147,6 +160,12 @@ enarar
 <p>Given the recording in your puzzle input, <em>what is the error-corrected version</em> of the message being sent?</p>
 </article>
 
+<article class="day-desc"><h2>--- Part Two ---</h2><p>Of course, that <em>would</em> be the message - if you hadn't agreed to use a <em>modified repetition code</em> instead.</p>
+<p>In this <span title="*Please* don't try this at home.">modified code</span>, the sender instead transmits what looks like random data, but for each character, the character they actually want to send is <em>slightly less likely</em> than the others. Even after signal-jamming noise, you can look at the letter distributions in each column and choose the <em>least common</em> letter to reconstruct the original message.</p>
+<p>In the above example, the least common character in the first column is <code>a</code>; in the second, <code>d</code>, and so on. Repeating this process for the remaining characters produces the original message, <code>advent</code>.</p>
+<p>Given the recording in your puzzle input and this new decoding methodology, <em>what is the original message</em> that Santa is trying to send?</p>
+</article>
+
 
 
 <article class="day-desc"><h2>--- Day 7: Internet Protocol Version 7 ---</h2><p>While snooping around the local network of EBHQ, you compile a list of <a href="https://en.wikipedia.org/wiki/IP_address">IP addresses</a> (they're IPv7, of course; <a href="https://en.wikipedia.org/wiki/IPv6">IPv6</a> is much too limited). You'd like to figure out which IPs support <em>TLS</em> (transport-layer snooping).</p>
@@ -159,6 +178,18 @@ enarar
 <li><code>ioxxoj[asdfgh]zxcvbn</code> supports TLS (<code>oxxo</code> is outside square brackets, even though it's within a larger string).</li>
 </ul>
 <p><em>How many IPs</em> in your puzzle input support TLS?</p>
+</article>
+
+<article class="day-desc"><h2>--- Part Two ---</h2><p>You would also like to know which IPs support <em>SSL</em> (super-secret listening).</p>
+<p>An IP supports SSL if it has an Area-Broadcast Accessor, or <em>ABA</em>, anywhere in the supernet sequences (outside any square bracketed sections), and a corresponding Byte Allocation Block, or <em>BAB</em>, anywhere in the hypernet sequences. An ABA is any three-character sequence which consists of the same character twice with a different character between them, such as <code>xyx</code> or <code>aba</code>. A corresponding BAB is the same characters but in reversed positions: <code>yxy</code> and <code>bab</code>, respectively.</p>
+<p>For example:</p>
+<ul>
+<li><code>aba[bab]xyz</code> supports SSL (<code>aba</code> outside square brackets with corresponding <code>bab</code> within square brackets).</li>
+<li><code>xyx[xyx]xyx</code> does <em>not</em> support SSL (<code>xyx</code>, but no corresponding <code>yxy</code>).</li>
+<li><code>aaa[kek]eke</code> supports SSL (<code>eke</code> in supernet with corresponding <code>kek</code> in hypernet; the <code>aaa</code> sequence is not related, because the interior character must be different).</li>
+<li><code>zazbz[bzb]cdb</code> supports SSL (<code>zaz</code> has no corresponding <code>aza</code>, but <code>zbz</code> has a corresponding <code>bzb</code>, even though <code>zaz</code> and <code>zbz</code> overlap).</li>
+</ul>
+<p><em>How many IPs</em> in your puzzle input support SSL?</p>
 </article>
 
 
@@ -191,6 +222,10 @@ enarar
 <p>There seems to be an intermediate check of the voltage used by the display: after you swipe your card, if the screen did work, <em>how many pixels should be lit?</em></p>
 </article>
 
+<article class="day-desc"><h2>--- Part Two ---</h2><p>You notice that the screen is only capable of displaying capital letters; in the font it uses, each letter is <code>5</code> pixels wide and <code>6</code> tall.</p>
+<p>After you swipe your card, <em>what code is the screen trying to display?</em></p>
+</article>
+
 
 
 <article class="day-desc"><h2>--- Day 9: Explosives in Cyberspace ---</h2><p>Wandering around a secure area, you come across a datalink port to a new part of the network. After briefly scanning it for interesting files, you find one file in particular that catches your attention. It's compressed with an experimental format, but fortunately, the documentation for the format is nearby.</p>
@@ -206,6 +241,19 @@ enarar
 <li><code>X(8x2)(3x3)ABCY</code> becomes <code>X(3x3)ABC(3x3)ABCY</code> (for a decompressed length of <code>18</code>), because the decompressed data from the <code>(8x2)</code> marker (the <code>(3x3)ABC</code>) is skipped and not processed further.</li>
 </ul>
 <p>What is the <em>decompressed length</em> of the file (your puzzle input)? Don't count whitespace.</p>
+</article>
+
+<article class="day-desc"><h2>--- Part Two ---</h2><p>Apparently, the file actually uses <em>version two</em> of the format.</p>
+<p>In version two, the only difference is that markers within decompressed data <em>are</em> decompressed. This, the documentation explains, provides much more substantial compression capabilities, allowing many-gigabyte files to be stored in <span title="&quot;It's the bomb!&quot;, the documentation claims.">only a few kilobytes</span>.</p>
+<p>For example:</p>
+<ul>
+<li><code>(3x3)XYZ</code> still becomes <code>XYZXYZXYZ</code>, as the decompressed section contains no markers.</li>
+<li><code>X(8x2)(3x3)ABCY</code> becomes <code>XABCABCABCABCABCABCY</code>, because the decompressed data from the <code>(8x2)</code> marker is then further decompressed, thus triggering the <code>(3x3)</code> marker twice for a total of six <code>ABC</code> sequences.</li>
+<li><code>(27x12)(20x12)(13x14)(7x10)(1x12)A</code> decompresses into a string of <code>A</code> repeated <code>241920</code> times.</li>
+<li><code>(25x3)(3x3)ABC(2x3)XY(5x2)PQRSTX(18x9)(3x2)TWO(5x7)SEVEN</code> becomes <code>445</code> characters long.</li>
+</ul>
+<p>Unfortunately, the computer you brought probably doesn't have enough memory to actually decompress the file; you'll have to <em>come up with another way</em> to get its decompressed length.</p>
+<p>What is the <em>decompressed length</em> of the file using this improved format?</p>
 </article>
 
 
