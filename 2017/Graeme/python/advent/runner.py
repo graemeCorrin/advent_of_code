@@ -21,6 +21,7 @@ from advent.day.day_17 import Day17
 from advent.day.day_18 import Day18
 from advent.day.day_19 import Day19
 from advent.day.day_20 import Day20
+from advent.day.day_21 import Day21
 
 
 def __run():
@@ -99,6 +100,9 @@ def run_days(days=None):
 
     if all_days or 20 in days:
         __run_day20()
+
+    if all_days or 21 in days:
+        __run_day21()
 
 
 def __run_day1():
@@ -424,6 +428,26 @@ def __run_day20():
 
     # Part 2
     print(f"  Part Two: {Day20.part_2(lines)}")
+
+
+def __run_day21():
+
+    in_file = pathlib.Path.cwd().parent / 'data' / 'day_21.txt'
+    with open(in_file) as file:
+        lines = file.read().splitlines()
+
+    example = ['../.# => ##./#../...',
+               '.#./..#/### => #..#/..../..../#..#']
+
+    input_string = '.#./..#/###'
+
+    print("Day 21")
+
+    # Part 1
+    print(f"  Part One: {Day21.part_1(example, input_string, 5)}")
+
+    # Part 2
+    print(f"  Part Two: {Day21.part_2(lines)}")
 
 
 if __name__ == "__main__":
